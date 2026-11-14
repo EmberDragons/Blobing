@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://155xx7s6y6ta"]
 
 [ext_resource type="PackedScene" uid="uid://dkh2s285bh32u" path="res://gameObject/player.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://c6vj7t8ep4uhc" path="res://gameObject/magician.tscn" id="4_jyhfs"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sugp2"]
 normal = Vector2(1, 0)
@@ -72,3 +73,6 @@ offset_left = -1148.0
 offset_top = -1393.7639
 offset_right = -760.0
 offset_bottom = 1182.364
+
+[node name="magician" parent="." unique_id=1446377657 instance=ExtResource("4_jyhfs")]
+position = Vector2(-632, 374)
