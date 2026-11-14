@@ -1,5 +1,8 @@
 extends Node2D
 
+@onready var slime_pos: Node2D = $slime_pos
+
+@export var time_throw : float = 0.5
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,6 +14,9 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_ball_body_entered(body: Node2D) -> void:
+func _on_ball_touch(body: Node2D) -> void:
 	#we catched a ball
-	body.position
+	if body.has_method("block"):
+		body.block(slime_pos)
+		await get_tree().create_timer(time_throw).timeout
+		body.unblock()
