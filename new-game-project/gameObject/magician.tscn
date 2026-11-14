@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://c6vj7t8ep4uhc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7odnd"]
+size = Vector2(90, 192)
+
+[node name="magician" type="RigidBody2D" unique_id=1446377657]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1704001594]
+offset_left = -45.0
+offset_top = -96.0
+offset_right = 45.0
+offset_bottom = 96.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=635482631]
+shape = SubResource("RectangleShape2D_7odnd")
