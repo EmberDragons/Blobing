@@ -1,3 +1,5 @@
+class_name fire
+
 extends RigidBody2D
 
 var saved_velocity : Vector2

@@ -12,5 +12,6 @@ func _process(delta: float) -> void:
 
 
 func _on_collision(body: Node2D) -> void:
-	body.die()
-	queue_free()
+	if body is fire:
+		body.die()
+		queue_free()

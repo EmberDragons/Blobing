@@ -1,11 +1,57 @@
 [gd_scene format=3 uid="uid://c6vj7t8ep4uhc"]
 
+[ext_resource type="Texture2D" uid="uid://cvagy2gbnib4m" path="res://art/magi.png" id="1_k5xhy"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7odnd"]
 size = Vector2(90, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tefeu"]
+atlas = ExtResource("1_k5xhy")
+region = Rect2(76, 0, 696, 895)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6xl0"]
+atlas = ExtResource("1_k5xhy")
+region = Rect2(782, 0, 686, 895)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tipki"]
+atlas = ExtResource("1_k5xhy")
+region = Rect2(1469, 0, 673, 895)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85g3d"]
+atlas = ExtResource("1_k5xhy")
+region = Rect2(2144, 9, 673, 895)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_choun"]
+atlas = ExtResource("1_k5xhy")
+region = Rect2(2818, 9, 680, 895)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j3blc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tefeu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6xl0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tipki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85g3d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_choun")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="magician" type="RigidBody2D" unique_id=1446377657]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1704001594]
+visible = false
 offset_left = -45.0
 offset_top = -96.0
 offset_right = 45.0
@@ -13,3 +59,8 @@ offset_bottom = 96.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=635482631]
 shape = SubResource("RectangleShape2D_7odnd")
+
+[node name="animation" type="AnimatedSprite2D" parent="." unique_id=1152883998]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_j3blc")
+autoplay = "default"
