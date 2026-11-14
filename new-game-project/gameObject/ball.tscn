@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://np0npwj27ru4"]
+
+[ext_resource type="Texture2D" uid="uid://dybml1h66pau1" path="res://Custom-Icon-Design-Flatastic-6-Circle.512.png" id="1_iwm4c"]
+[ext_resource type="Script" uid="uid://6qqhiuadsbod" path="res://scripts/slime/main.gd" id="1_johoh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kq4oe"]
+radius = 25.019993
+
+[node name="ball" type="RigidBody2D" unique_id=305138964]
+collision_layer = 3
+script = ExtResource("1_johoh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1891245437]
+shape = SubResource("CircleShape2D_kq4oe")
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=1255753873]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_iwm4c")

@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dkh2s285bh32u"]
+
+[ext_resource type="Script" uid="uid://wmyah28egj7o" path="res://player.gd" id="1_q4gac"]
+[ext_resource type="Script" uid="uid://cld4gsjxpo13s" path="res://scripts/player/catch.gd" id="1_u3m6w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfe4j"]
+size = Vector2(20, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kq4oe"]
+size = Vector2(25, 200)
+
+[node name="playert" type="CharacterBody2D" unique_id=1650298364]
+script = ExtResource("1_q4gac")
+
+[node name="art" type="ColorRect" parent="." unique_id=31623327]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -96.0
+offset_right = 10.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=195339765]
+shape = SubResource("RectangleShape2D_lfe4j")
+
+[node name="catch" type="Node2D" parent="." unique_id=948766473]
+script = ExtResource("1_u3m6w")
+
+[node name="Area2D" type="Area2D" parent="catch" unique_id=1589911352]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="catch/Area2D" unique_id=1521741338]
+shape = SubResource("RectangleShape2D_kq4oe")
+
+[connection signal="body_entered" from="catch/Area2D" to="catch" method="_on_ball_body_entered"]
