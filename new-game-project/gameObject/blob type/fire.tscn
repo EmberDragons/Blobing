@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bkbwhawm0cdv2"]
+
+[ext_resource type="Script" uid="uid://dlp3ll3s3l3gp" path="res://scripts/slime/fireslime.gd" id="1_b3ix1"]
+[ext_resource type="Texture2D" uid="uid://dybml1h66pau1" path="res://Custom-Icon-Design-Flatastic-6-Circle.512.png" id="2_rsa0l"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_johoh"]
+friction = 0.0
+bounce = 0.8
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kq4oe"]
+radius = 25.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_johoh"]
+radius = 28.0
+
+[node name="fire" type="RigidBody2D" unique_id=305138964]
+scale = Vector2(0.8, 0.8)
+collision_layer = 3
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_johoh")
+lock_rotation = true
+script = ExtResource("1_b3ix1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1891245437]
+shape = SubResource("CircleShape2D_kq4oe")
+debug_color = Color(0.98235565, 0, 0.3671178, 0.41960785)
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=1255753873]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_rsa0l")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1673206737]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=915537858]
+shape = SubResource("CircleShape2D_johoh")
+
+[connection signal="body_exited" from="Area2D" to="." method="_on_body_collided"]

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://np0npwj27ru4"]
 
 [ext_resource type="Texture2D" uid="uid://dybml1h66pau1" path="res://Custom-Icon-Design-Flatastic-6-Circle.512.png" id="1_iwm4c"]
-[ext_resource type="Script" uid="uid://6qqhiuadsbod" path="res://scripts/slime/main.gd" id="1_johoh"]
+[ext_resource type="Script" uid="uid://6qqhiuadsbod" path="res://scripts/slime/slime.gd" id="1_johoh"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_johoh"]
 friction = 0.0
@@ -13,7 +13,7 @@ radius = 25.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_johoh"]
 radius = 28.0
 
-[node name="ball" type="RigidBody2D" unique_id=305138964]
+[node name="normal" type="RigidBody2D" unique_id=305138964]
 collision_layer = 3
 collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_johoh")

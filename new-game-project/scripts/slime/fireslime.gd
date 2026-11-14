@@ -31,11 +31,15 @@ func unblock() -> void:
 	freeze = false
 	linear_velocity = saved_velocity
 	#acceleration
+	accelerate()
+
+func die():
+	queue_free()
+
+func accelerate():
 	linear_velocity = Vector2(min(max_velocity,abs(linear_velocity.x*mult))*(int(linear_velocity.x>0)-0.5)*2,
 	min(max_velocity,abs(linear_velocity.y*mult))*(int(linear_velocity.y>0)-0.5)*2)
-
 
 func _on_body_collided(body: Node) -> void:
 	#acceleration
-	linear_velocity = Vector2(min(max_velocity,abs(linear_velocity.x*mult))*(int(linear_velocity.x>0)-0.5)*2,
-	min(max_velocity,abs(linear_velocity.y*mult))*(int(linear_velocity.y>0)-0.5)*2)
+	accelerate()
