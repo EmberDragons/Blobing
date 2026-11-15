@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://ga5lhikvu8cj"]
+
+[ext_resource type="Script" uid="uid://6qqhiuadsbod" path="res://scripts/slime/slime.gd" id="1_58xyl"]
+[ext_resource type="Texture2D" uid="uid://coal86xomiudg" path="res://art/slimes/small happy.png" id="2_58xyl"]
+[ext_resource type="Texture2D" uid="uid://ddoudm0bea21l" path="res://art/slimes/trails/hap.png" id="2_ypmcl"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_johoh"]
+friction = 0.0
+bounce = 0.8
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kq4oe"]
+radius = 20.024984
+
+[sub_resource type="Curve" id="Curve_20dhe"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0.08554572, 1), 0.0, 0.0, 0, 0, Vector2(0.3038348, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypmcl"]
+atlas = ExtResource("2_58xyl")
+region = Rect2(239, 200, 42, 42)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7odnd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ypmcl")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_johoh"]
+radius = 22.0
+
+[node name="small" type="RigidBody2D" unique_id=305138964]
+collision_layer = 3
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_johoh")
+lock_rotation = true
+script = ExtResource("1_58xyl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1891245437]
+shape = SubResource("CircleShape2D_kq4oe")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1679361651]
+texture_filter = 1
+amount = 2
+texture = ExtResource("2_ypmcl")
+lifetime = 0.8
+lifetime_randomness = 0.07
+emission_shape = 1
+emission_sphere_radius = 17.35
+spread = 180.0
+initial_velocity_max = 166.67
+angular_velocity_min = -10.0
+angular_velocity_max = 345.64
+radial_accel_min = -55.55
+radial_accel_max = 18.89
+damping_min = 100.0
+damping_max = 100.0
+angle_max = 128.0
+scale_amount_min = 0.8
+scale_amount_max = 1.4
+hue_variation_min = -0.02
+hue_variation_max = 0.03
+hue_variation_curve = SubResource("Curve_20dhe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1277005283]
+sprite_frames = SubResource("SpriteFrames_7odnd")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1673206737]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=915537858]
+shape = SubResource("CircleShape2D_johoh")
+
+[connection signal="body_exited" from="Area2D" to="." method="_on_body_collided"]

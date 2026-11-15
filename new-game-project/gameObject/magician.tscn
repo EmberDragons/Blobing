@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://c6vj7t8ep4uhc"]
 
-[ext_resource type="Script" uid="uid://dbw0cxe85gdi1" path="res://scripts/magician/magician.gd" id="1_mcmco"]
 [ext_resource type="Script" uid="uid://dbw0cxe85gdi1" path="res://scripts/magician/magician.gd" id="1_j3blc"]
 [ext_resource type="Texture2D" uid="uid://ddd6l0t6u6j00" path="res://art/anim/idle/IMG_6899.png" id="1_sbc3m"]
 [ext_resource type="Texture2D" uid="uid://76rtnn1orioq" path="res://art/anim/idle/IMG_6900.png" id="2_xfmko"]
@@ -107,7 +106,7 @@ animations = [{
 
 [node name="magician" type="RigidBody2D" unique_id=1446377657]
 freeze = true
-script = ExtResource("1_mcmco")
+script = ExtResource("1_j3blc")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1704001594]
 visible = false

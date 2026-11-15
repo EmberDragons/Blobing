@@ -7,43 +7,52 @@ var mult : float = 1.4
 var follow:bool = false
 var object_follow
 
-var small_blob = preload("res://gameObject/blob type/small.tscn")
+var jean = preload("res://gameObject/blob type/jean.tscn")
+var eude = preload("res://gameObject/blob type/eude.tscn")
+var philippe = preload("res://gameObject/blob type/philippe.tscn")
 
 func _ready() -> void:
 	linear_velocity += Vector2(1000,0)
-
-func spawn_small_blob(dir: int):
-	"""Make a small blob spawn
-	dir :
-		0 -> left
-		1 -> center
-		2 -> right"""
-	var b = small_blob.instantiate()
+	
+func spawn_jean():
+	"""Make Jean spawn"""
+	var jn = jean.instantiate()
 	var p = global_position
 	var v = get_node(^"/root/scene/magician/triple").linear_velocity
+	jn.position = p + Vector2(0., 100.)
+	jn.linear_velocity = v + Vector2(0., 200.)
+	if jn.linear_velocity.x <= 0.:
+		jn.linear_velocity -= Vector2(1200., 0.)
+	get_tree().current_scene.add_child(jn)
 	
-	b.position = p
-	b.linear_velocity = v
+func spawn_eude():
+	"""Make Eude spawn"""
+	var ee = eude.instantiate()
+	var p = global_position
+	var v = get_node(^"/root/scene/magician/triple").linear_velocity
+	ee.position = p
+	ee.linear_velocity = v
+	if ee.linear_velocity.x <= 0.:
+		ee.linear_velocity -= Vector2(1200., 0.)
+	get_tree().current_scene.add_child(ee)
 	
-	if dir == 0:
-		b.position += Vector2(0., 100.)
-		b.linear_velocity += Vector2(0., 200.)
-	elif dir == 2:
-		b.position -= Vector2(0., 100.)
-		b.linear_velocity -= Vector2(0., 200.)
-	
-	print(b.linear_velocity)
-	if b.linear_velocity.x <= 0.:
-		b.linear_velocity -= Vector2(1200., 0.)
-	
-	get_tree().current_scene.add_child(b)
+func spawn_philippe():
+	"""Make Philippe spawn"""
+	var pe = philippe.instantiate()
+	var p = global_position
+	var v = get_node(^"/root/scene/magician/triple").linear_velocity
+	pe.position = p - Vector2(0., 100.)
+	pe.linear_velocity = v - Vector2(0., 200.)
+	if pe.linear_velocity.x <= 0.:
+		pe.linear_velocity -= Vector2(1200., 0.)
+	get_tree().current_scene.add_child(pe)
 
 func _unhandled_input(event):
 	if event is InputEventKey:
 		if event.pressed and event.keycode == KEY_LEFT:
-			spawn_small_blob(0)
-			spawn_small_blob(1)
-			spawn_small_blob(2)
+			spawn_jean()
+			spawn_eude()
+			spawn_philippe()
 			die()
 
 func _process(delta: float) -> void:
