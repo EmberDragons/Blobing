@@ -33,3 +33,4 @@ func choose_blob():
 
 func summon(blob):
 	spawn_blob(blob)
+	Score.score += 1

@@ -5,7 +5,6 @@ var speed = 400.0
 var friction = 900.0
 var pos_x : float
 
-
 func _ready() -> void:
 	pos_x = position.x
 
