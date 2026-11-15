@@ -22,7 +22,7 @@ distance = -119.83571
 points = PackedVector2Array(-21.739136, 54.694847, -65.94203, 56.45541, -115.57971, 22.065731, -75.72464, -5.399063, 7.6087036, -2.3474197, -63.405792, 8.098591, -84.78261, 17.370895, -80.434784, 27.112682, -25.72464, 32.981228, -14.130432, 45.89203)
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_5gtvn"]
-points = PackedVector2Array(-3.9855042, 92.25354, -33.69565, 91.54932, -35.507248, 76.29109, -71.014496, 75.4695, -57.246384, 82.62912, -81.159424, 98.239456, -101.811584, 105.63382, -117.3913, 111.85448, -116.66666, 118.192505, -77.53624, 118.192505, -84.78261, 113.02819)
+points = PackedVector2Array(0, 92.0188, -34.782608, 92.0188, -35.507248, 76.29109, -71.014496, 75.4695, -57.246384, 82.62912, -81.159424, 98.239456, -101.811584, 105.63382, -117.3913, 111.85448, -116.66666, 118.192505, -77.53624, 118.192505, -84.78261, 113.02819)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_a8y0u"]
 normal = Vector2(0, 1)
@@ -66,8 +66,7 @@ scale = Vector2(1.175, 1.175)
 magician = NodePath("../magician")
 
 [node name="kill_zone" parent="." unique_id=1597284461 instance=ExtResource("10_eb6dy")]
-visible = false
-position = Vector2(1074, -74.00001)
+position = Vector2(1093, -78)
 scale = Vector2(2.76, 8.519999)
 
 [node name="win_zone" parent="." unique_id=824333999 instance=ExtResource("14_jbj1t")]

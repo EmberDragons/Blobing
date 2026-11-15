@@ -1,6 +1,7 @@
 class_name fire
 
 extends RigidBody2D
+const EXPLOSION = preload("uid://g6hkghgckxom")
 
 @export var max_velocity : float = 1000
 @export var rotation_modif : float = 0.01
@@ -54,7 +55,10 @@ func die():
 	queue_free()
 
 func spawn_explosion():
-	
+	var b = EXPLOSION.instantiate()
+	b.global_position = global_position
+	get_tree().current_scene.add_child(b)
+	die()
 
 
 func accelerate():
