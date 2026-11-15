@@ -2,9 +2,10 @@ class_name fire
 
 extends RigidBody2D
 
+@export var max_velocity : float = 1000
+@export var rotation_modif : float = 0.01
+@export var mult : float = 1.4
 var saved_velocity : Vector2
-var max_velocity : float = 1000
-var mult : float = 1.4
 
 var follow:bool = false
 var object_follow
@@ -34,6 +35,8 @@ func unblock() -> void:
 	linear_velocity = saved_velocity
 	#acceleration
 	accelerate()
+	angular_velocity += (rotation_modif*randf_range(-1,1)*(linear_velocity.x+linear_velocity.y))
+
 
 func die():
 	queue_free()
@@ -45,3 +48,4 @@ func accelerate():
 func _on_body_collided(body: Node) -> void:
 	#acceleration
 	accelerate()
+	angular_velocity += (rotation_modif*randf_range(-1,1)*(linear_velocity.x+linear_velocity.y))

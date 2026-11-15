@@ -12,6 +12,6 @@ func _process(delta: float) -> void:
 
 
 func _on_collision(body: Node2D) -> void:
-	if body is fire:
+	if body.is_in_group("fire"):
 		body.die()
 		queue_free()

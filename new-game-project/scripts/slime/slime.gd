@@ -1,8 +1,9 @@
 extends RigidBody2D
 
+@export var max_velocity : float = 1000
+@export var rotation_modif : float = 0.01
+@export var mult : float = 1.4
 var saved_velocity : Vector2
-var max_velocity : float = 1000
-var mult : float = 1.4
 
 var follow:bool = false
 var object_follow
@@ -31,13 +32,18 @@ func unblock() -> void:
 	freeze = false
 	linear_velocity = saved_velocity
 	#acceleration
-	linear_velocity = Vector2(min(max_velocity,abs(linear_velocity.x*mult))*(int(linear_velocity.x>0)-0.5)*2,
-	min(max_velocity,abs(linear_velocity.y*mult))*(int(linear_velocity.y>0)-0.5)*2)
+	accelerate()
+	angular_velocity = (rotation_modif*randf_range(-1,1)*(linear_velocity.x+linear_velocity.y))
 
 func die():
 	queue_free()
 
 func _on_body_collided(body: Node) -> void:
 	#acceleration et rebonds
+	accelerate()
+	angular_velocity += (rotation_modif*randf_range(-1,1)*(linear_velocity.x+linear_velocity.y))
+
+
+func accelerate():
 	linear_velocity = Vector2(min(max_velocity,abs(linear_velocity.x*mult))*(int(linear_velocity.x>0)-0.5)*2,
 	min(max_velocity,abs(linear_velocity.y*mult))*(int(linear_velocity.y>0)-0.5)*2)

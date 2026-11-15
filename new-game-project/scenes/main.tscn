@@ -13,11 +13,6 @@ normal = Vector2(-1, 0)
 
 [node name="scene" type="Node2D" unique_id=1097035717]
 
-[node name="player" parent="." unique_id=1650298364 instance=ExtResource("1_o5qli")]
-position = Vector2(732, 0)
-
-[node name="cam" type="Camera2D" parent="." unique_id=2026114329]
-
 [node name="Contour" type="Node" parent="." unique_id=2114506876]
 
 [node name="left" type="StaticBody2D" parent="Contour" unique_id=1250885827]
@@ -40,10 +35,10 @@ position = Vector2(-1148, -431)
 shape = SubResource("WorldBoundaryShape2D_5gtvn")
 
 [node name="ColorRect4" type="ColorRect" parent="Contour/right" unique_id=1284151558]
-offset_left = -1148.0
-offset_top = -562.0
-offset_right = -760.0
-offset_bottom = 530.0
+offset_left = -1149.0
+offset_top = -563.0
+offset_right = -761.0
+offset_bottom = 529.0
 
 [node name="top" type="StaticBody2D" parent="Contour" unique_id=30579733]
 position = Vector2(90, -1608)
@@ -55,12 +50,12 @@ shape = SubResource("WorldBoundaryShape2D_0wfyh")
 
 [node name="ColorRect4" type="ColorRect" parent="Contour/top" unique_id=115282793]
 offset_left = -1148.0
-offset_top = -1393.7639
+offset_top = -1246.982
 offset_right = -760.0
-offset_bottom = 1182.364
+offset_bottom = 1157.9003
 
 [node name="bottom" type="StaticBody2D" parent="Contour" unique_id=1751103973]
-position = Vector2(-20, 1634)
+position = Vector2(-8, 1470)
 rotation = 1.5707964
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Contour/bottom" unique_id=2103435163]
@@ -69,6 +64,11 @@ shape = SubResource("WorldBoundaryShape2D_5gtvn")
 
 [node name="ColorRect4" type="ColorRect" parent="Contour/bottom" unique_id=1955105908]
 offset_left = -1148.0
-offset_top = -1393.7639
+offset_top = -1267.3684
 offset_right = -760.0
-offset_bottom = 1182.364
+offset_bottom = 1141.5913
+
+[node name="player" parent="." unique_id=1650298364 instance=ExtResource("1_o5qli")]
+position = Vector2(732, 0)
+
+[node name="cam" type="Camera2D" parent="." unique_id=2026114329]

@@ -1,20 +1,41 @@
 [gd_scene format=3 uid="uid://bkbwhawm0cdv2"]
 
 [ext_resource type="Script" uid="uid://dlp3ll3s3l3gp" path="res://scripts/slime/fireslime.gd" id="1_b3ix1"]
-[ext_resource type="Texture2D" uid="uid://dybml1h66pau1" path="res://Custom-Icon-Design-Flatastic-6-Circle.512.png" id="2_rsa0l"]
+[ext_resource type="Texture2D" uid="uid://di4a5bjca1j00" path="res://art/slimes/fire.png" id="2_b3ix1"]
+[ext_resource type="Texture2D" uid="uid://clybh07igxu6b" path="res://art/slimes/trails/firr.png" id="2_rsa0l"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_johoh"]
 friction = 0.0
 bounce = 0.8
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kq4oe"]
-radius = 25.0
+radius = 31.0
+
+[sub_resource type="Curve" id="Curve_2nmsb"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0.08554572, 1), 0.0, 0.0, 0, 0, Vector2(0.3038348, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rsa0l"]
+atlas = ExtResource("2_b3ix1")
+region = Rect2(173, 281, 85, 78)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kq4oe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rsa0l")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_johoh"]
-radius = 28.0
+radius = 34.0
 
-[node name="fire" type="RigidBody2D" unique_id=305138964]
-scale = Vector2(0.8, 0.8)
+[node name="fire" type="RigidBody2D" unique_id=305138964 groups=["fire"]]
+texture_filter = 1
 collision_layer = 3
 collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_johoh")
@@ -25,9 +46,33 @@ script = ExtResource("1_b3ix1")
 shape = SubResource("CircleShape2D_kq4oe")
 debug_color = Color(0.98235565, 0, 0.3671178, 0.41960785)
 
-[node name="sprite" type="Sprite2D" parent="." unique_id=1255753873]
-scale = Vector2(0.1, 0.1)
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1901198610]
+texture_filter = 1
+amount = 10
 texture = ExtResource("2_rsa0l")
+lifetime = 0.8
+lifetime_randomness = 0.07
+emission_shape = 1
+emission_sphere_radius = 17.35
+spread = 180.0
+initial_velocity_max = 166.67
+angular_velocity_min = -370.0
+angular_velocity_max = 386.95
+radial_accel_min = -55.55
+radial_accel_max = 18.89
+damping_min = 100.0
+damping_max = 100.0
+angle_max = 128.0
+scale_amount_min = 0.5
+scale_amount_max = 1.5
+hue_variation_min = -0.02
+hue_variation_max = 0.03
+hue_variation_curve = SubResource("Curve_2nmsb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=875249634]
+position = Vector2(0, -3)
+scale = Vector2(0.9, 0.9)
+sprite_frames = SubResource("SpriteFrames_kq4oe")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1673206737]
 

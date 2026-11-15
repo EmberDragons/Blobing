@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://csl73su0ch1k0"]
+
+[ext_resource type="Script" uid="uid://dayvv1seetktk" path="res://scripts/obj/button.gd" id="1_b1o02"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_8tpjf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kq4oe"]
+size = Vector2(100, 30)
+
+[sub_resource type="Animation" id="Animation_4stl2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -9)]
+}
+
+[sub_resource type="Animation" id="Animation_26778"]
+resource_name = "pressed"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -9), Vector2(0, 8)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_is4y3"]
+_data = {
+&"RESET": SubResource("Animation_4stl2"),
+&"pressed": SubResource("Animation_26778")
+}
+
+[node name="button" type="Node2D" unique_id=1508777399]
+script = ExtResource("1_b1o02")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1851180385]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1159270901]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_kq4oe")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1503238454]
+position = Vector2(0, -9)
+scale = Vector2(0.7, 0.17)
+texture = ExtResource("2_8tpjf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1925445301]
+libraries/ = SubResource("AnimationLibrary_is4y3")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_collide"]

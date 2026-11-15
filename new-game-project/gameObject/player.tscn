@@ -1,13 +1,9 @@
 [gd_scene format=3 uid="uid://dkh2s285bh32u"]
 
 [ext_resource type="Script" uid="uid://wmyah28egj7o" path="res://scripts/player/player.gd" id="1_q4gac"]
-[ext_resource type="Script" uid="uid://cld4gsjxpo13s" path="res://scripts/player/catch.gd" id="1_u3m6w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lfe4j"]
 size = Vector2(14, 184)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kq4oe"]
-size = Vector2(18, 192)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hdlqr"]
 size = Vector2(24, 196)
@@ -32,25 +28,9 @@ color = Color(0, 0, 0, 1)
 [node name="collision" type="CollisionShape2D" parent="." unique_id=195339765]
 shape = SubResource("RectangleShape2D_lfe4j")
 
-[node name="catch" type="Node2D" parent="." unique_id=948766473]
-script = ExtResource("1_u3m6w")
-
-[node name="Area2D" type="Area2D" parent="catch" unique_id=1589911352]
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="catch/Area2D" unique_id=1521741338]
-position = Vector2(-6, 0)
-shape = SubResource("RectangleShape2D_kq4oe")
-
-[node name="slime_pos" type="Node2D" parent="catch" unique_id=1062455357]
-position = Vector2(-78, 0)
-
 [node name="collision slime" type="StaticBody2D" parent="." unique_id=1703185376]
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="collision slime" unique_id=866308646]
 shape = SubResource("RectangleShape2D_hdlqr")
-
-[connection signal="body_exited" from="catch/Area2D" to="catch" method="_on_ball_touch"]
