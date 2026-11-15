@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://155xx7s6y6ta"]
 
 [ext_resource type="PackedScene" uid="uid://dkh2s285bh32u" path="res://gameObject/player.tscn" id="1_o5qli"]
+[ext_resource type="AudioStream" uid="uid://d1uvjwmvq7rwm" path="res://art/sound/magic-blobing-main-loop.mp3" id="2_0wfyh"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sugp2"]
 normal = Vector2(1, 0)
@@ -72,3 +73,8 @@ offset_bottom = 1141.5913
 position = Vector2(732, 0)
 
 [node name="cam" type="Camera2D" parent="." unique_id=2026114329]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1960686319]
+stream = ExtResource("2_0wfyh")
+volume_db = -4.0
+autoplay = true
