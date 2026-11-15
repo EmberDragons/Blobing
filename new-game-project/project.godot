@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Magic Blobbing"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="uid://chykqfu21lyb3"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="uid://cofp81g2c36ao"
 
@@ -30,6 +30,7 @@ window/stretch/aspect="expand"
 
 blob=""
 fireable=""
+gravity=""
 
 [input]
 

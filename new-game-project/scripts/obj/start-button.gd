@@ -9,6 +9,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var c = Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)
 	if c:
-		get_tree().change_scene_to_file("res://scenes/main.tscn")
+		get_tree().change_scene_to_file("res://scenes/level_1.tscn")
 	
 	

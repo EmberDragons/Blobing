@@ -1,9 +1,15 @@
 [gd_scene format=3 uid="uid://c4xwr4jquqqv1"]
 
 [ext_resource type="Texture2D" uid="uid://cielai0oo645x" path="res://art/bg/credits.png" id="1_0bpdh"]
+[ext_resource type="AudioStream" uid="uid://d1uvjwmvq7rwm" path="res://art/sound/magic-blobing-main-loop.mp3" id="2_2ckv8"]
 
 [node name="Credits" type="Node2D" unique_id=1331516329]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1231570996]
 position = Vector2(960, 600)
 texture = ExtResource("1_0bpdh")
+
+[node name="music" type="AudioStreamPlayer" parent="." unique_id=2141163338]
+stream = ExtResource("2_2ckv8")
+volume_db = -4.0
+autoplay = true

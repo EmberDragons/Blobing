@@ -1,0 +1,248 @@
+[gd_scene format=3 uid="uid://d15243782i0em"]
+
+[ext_resource type="AudioStream" uid="uid://d1uvjwmvq7rwm" path="res://art/sound/magic-blobing-main-loop.mp3" id="1_so66j"]
+[ext_resource type="AudioStream" uid="uid://cx5cjp1pr2oqj" path="res://art/sound/blob.mp3" id="1_tr1x6"]
+[ext_resource type="Texture2D" uid="uid://5v4sq37dqi8o" path="res://art/bg/IMG_6977.png" id="2_d5akn"]
+[ext_resource type="Script" uid="uid://d1ahccofte7rn" path="res://scripts/cam_sway.gd" id="3_wbtxt"]
+[ext_resource type="Texture2D" uid="uid://dha6nta2bxt54" path="res://art/bg/IMG_6975.png" id="4_x2fux"]
+[ext_resource type="Texture2D" uid="uid://bb7ll5i1qa6w0" path="res://art/bg/IMG_6976.png" id="5_s7g0b"]
+[ext_resource type="PackedScene" uid="uid://c6vj7t8ep4uhc" path="res://gameObject/magician.tscn" id="6_mmfjm"]
+[ext_resource type="PackedScene" uid="uid://dr1mq8ufymbhc" path="res://gameObject/blob type/big.tscn" id="7_k8ld0"]
+[ext_resource type="PackedScene" uid="uid://bkbwhawm0cdv2" path="res://gameObject/blob type/fire.tscn" id="8_mbb35"]
+[ext_resource type="PackedScene" uid="uid://d4m0y0t8te6l4" path="res://gameObject/blob type/fluffy.tscn" id="9_iw4em"]
+[ext_resource type="PackedScene" uid="uid://bp4t7li86usdm" path="res://gameObject/blob type/gravity.tscn" id="10_hnsmf"]
+[ext_resource type="PackedScene" uid="uid://np0npwj27ru4" path="res://gameObject/blob type/normal.tscn" id="11_nossa"]
+[ext_resource type="PackedScene" uid="uid://dolv2l0bo0731" path="res://gameObject/blob type/triple.tscn" id="12_hjqri"]
+[ext_resource type="PackedScene" uid="uid://dkh2s285bh32u" path="res://gameObject/player.tscn" id="13_hg84p"]
+[ext_resource type="PackedScene" uid="uid://cv6634q6hcp7e" path="res://gameObject/kill_zone.tscn" id="14_1aans"]
+[ext_resource type="PackedScene" uid="uid://crw4rmtamfyyy" path="res://gameObject/win_zone.tscn" id="15_q0ron"]
+[ext_resource type="Texture2D" uid="uid://gh1gmxmtkgt7" path="res://art/button.png" id="17_v8pws"]
+[ext_resource type="FontFile" uid="uid://b0lct4a1cm3hn" path="res://fonts/MyCustomFont.ttf" id="18_rscm6"]
+[ext_resource type="PackedScene" uid="uid://cjaghwme6f6fd" path="res://gameObject/big_rock.tscn" id="20_wa552"]
+[ext_resource type="PackedScene" uid="uid://bvo4thlicr6q6" path="res://gameObject/block.tscn" id="21_v0i6o"]
+[ext_resource type="PackedScene" uid="uid://bn8whmvrds1xu" path="res://UI/ui_1.tscn" id="22_bamb7"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kq4oe"]
+distance = -119.83571
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfe4j"]
+size = Vector2(29.11737, 37.33292)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_a8y0u"]
+normal = Vector2(0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hdlqr"]
+size = Vector2(97.5651, 22.468706)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kq4oe"]
+size = Vector2(117, 451)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kq4oe"]
+font = ExtResource("18_rscm6")
+font_size = 32
+font_color = Color(0.85882354, 0.49019608, 0.5254902, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lfe4j"]
+font = ExtResource("18_rscm6")
+font_size = 14
+font_color = Color(0.85882354, 0.49019608, 0.5254902, 1)
+
+[node name="scene" type="Node2D" unique_id=1097035717]
+
+[node name="music" type="AudioStreamPlayer" parent="." unique_id=1960686319]
+stream = ExtResource("1_so66j")
+volume_db = -4.0
+autoplay = true
+
+[node name="blob" type="AudioStreamPlayer" parent="." unique_id=1707155068]
+stream = ExtResource("1_tr1x6")
+
+[node name="art" type="Node2D" parent="." unique_id=2034347029]
+position = Vector2(0, 18)
+
+[node name="bg" type="Sprite2D" parent="art" unique_id=1316790238]
+position = Vector2(0, -97)
+texture = ExtResource("2_d5akn")
+script = ExtResource("3_wbtxt")
+
+[node name="Sprite2D" type="Sprite2D" parent="art" unique_id=2137831404]
+position = Vector2(-5, -97)
+texture = ExtResource("5_s7g0b")
+script = ExtResource("3_wbtxt")
+
+[node name="block" type="Node2D" parent="." unique_id=899583862]
+position = Vector2(92, -226.99998)
+rotation = 2.3405666
+
+[node name="AnimatableBody2D" parent="block" unique_id=506022899 instance=ExtResource("20_wa552")]
+position = Vector2(-265, 12)
+
+[node name="AnimatableBody2D2" parent="block" unique_id=196101165 instance=ExtResource("20_wa552")]
+position = Vector2(-319, -79)
+
+[node name="AnimatableBody2D3" parent="block" unique_id=1216686054 instance=ExtResource("21_v0i6o")]
+position = Vector2(-345, 40)
+
+[node name="AnimatableBody2D4" parent="block" unique_id=191211745 instance=ExtResource("20_wa552")]
+position = Vector2(-265, -142)
+
+[node name="AnimatableBody2D5" parent="block" unique_id=998485503 instance=ExtResource("21_v0i6o")]
+position = Vector2(-290, -212)
+
+[node name="block2" type="Node2D" parent="." unique_id=1128772088]
+position = Vector2(-25.000008, 591)
+rotation = 1.7691587
+
+[node name="AnimatableBody2D" parent="block2" unique_id=1968190808 instance=ExtResource("20_wa552")]
+position = Vector2(-265, 12)
+
+[node name="AnimatableBody2D2" parent="block2" unique_id=975947309 instance=ExtResource("20_wa552")]
+position = Vector2(-319, -79)
+
+[node name="AnimatableBody2D3" parent="block2" unique_id=701649674 instance=ExtResource("21_v0i6o")]
+position = Vector2(-345, 40)
+
+[node name="AnimatableBody2D4" parent="block2" unique_id=1875321317 instance=ExtResource("20_wa552")]
+position = Vector2(-265, -142)
+
+[node name="AnimatableBody2D5" parent="block2" unique_id=903065142 instance=ExtResource("21_v0i6o")]
+position = Vector2(-290, -212)
+
+[node name="bg2" type="Sprite2D" parent="." unique_id=1819905164]
+position = Vector2(0, -79)
+texture = ExtResource("4_x2fux")
+
+[node name="magician" parent="." unique_id=1446377657 instance=ExtResource("6_mmfjm")]
+position = Vector2(-374, 310)
+blobs_prefab = [ExtResource("7_k8ld0"), ExtResource("8_mbb35"), ExtResource("9_iw4em"), ExtResource("10_hnsmf"), ExtResource("11_nossa"), ExtResource("12_hjqri")]
+
+[node name="player" parent="." unique_id=1650298364 instance=ExtResource("13_hg84p")]
+position = Vector2(553, 0)
+
+[node name="cam" type="Camera2D" parent="." unique_id=2026114329]
+
+[node name="kill_zone" parent="." unique_id=1597284461 instance=ExtResource("14_1aans")]
+visible = false
+position = Vector2(1093, -78)
+scale = Vector2(2.76, 8.519999)
+
+[node name="win_zone" parent="." unique_id=824333999 instance=ExtResource("15_q0ron")]
+visible = false
+position = Vector2(-869.00006, 2.9999695)
+scale = Vector2(2.372068, 4.636084)
+
+[node name="collisions" type="Node" parent="." unique_id=871852606]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="collisions" unique_id=331621359]
+position = Vector2(0, 18)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="collisions/StaticBody2D" unique_id=163506090]
+position = Vector2(0, -613)
+scale = Vector2(2.76, 8.519999)
+shape = SubResource("WorldBoundaryShape2D_kq4oe")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="collisions" unique_id=31795827]
+position = Vector2(-756, 164)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="collisions/StaticBody2D2" unique_id=1337887333]
+position = Vector2(163.00006, -718)
+rotation = 1.0931723
+scale = Vector2(2.76, 8.519999)
+shape = SubResource("RectangleShape2D_lfe4j")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="collisions" unique_id=1841317263]
+position = Vector2(-203, 11)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="collisions/StaticBody2D4" unique_id=756369535]
+position = Vector2(0, -613)
+scale = Vector2(2.76, 8.519999)
+shape = SubResource("WorldBoundaryShape2D_a8y0u")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="collisions" unique_id=26707539]
+position = Vector2(-150.00002, 53.000004)
+rotation = -1.0907229
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="collisions/StaticBody2D5" unique_id=198050400]
+position = Vector2(163.00006, -718)
+rotation = 1.0931723
+scale = Vector2(2.76, 8.519999)
+shape = SubResource("RectangleShape2D_lfe4j")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="collisions" unique_id=1345733326]
+position = Vector2(-81.000015, 300)
+rotation = -1.0907229
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="collisions/StaticBody2D6" unique_id=1541770656]
+position = Vector2(220.59436, -728.9457)
+rotation = 1.6014814
+scale = Vector2(2.76, 8.520001)
+shape = SubResource("RectangleShape2D_hdlqr")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="collisions" unique_id=658535363]
+position = Vector2(-756, 164)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collisions/StaticBody2D3" unique_id=972281309]
+position = Vector2(143.5, 170.5)
+shape = SubResource("RectangleShape2D_kq4oe")
+
+[node name="Control" type="Control" parent="." unique_id=1044547857]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 953.0
+offset_top = -590.0
+offset_right = 953.0
+offset_bottom = -590.0
+grow_horizontal = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Control" unique_id=827218413]
+position = Vector2(-214, -56)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("17_v8pws")
+
+[node name="Label" type="Label" parent="Control" unique_id=805498421]
+layout_mode = 0
+offset_left = -264.0
+offset_top = 17.0
+offset_right = -154.0
+offset_bottom = 61.0
+text = "SPACE"
+label_settings = SubResource("LabelSettings_kq4oe")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Control" unique_id=298988809]
+position = Vector2(-311, 48)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("17_v8pws")
+
+[node name="Label2" type="Label" parent="Control" unique_id=982642063]
+layout_mode = 0
+offset_left = -347.0
+offset_top = 86.0
+offset_right = -237.0
+offset_bottom = 130.0
+text = "ARROW UP"
+label_settings = SubResource("LabelSettings_lfe4j")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Control" unique_id=1193930951]
+position = Vector2(-127, 48)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("17_v8pws")
+
+[node name="Label3" type="Label" parent="Control" unique_id=460098104]
+layout_mode = 0
+offset_left = -172.0
+offset_top = 86.0
+offset_right = -62.0
+offset_bottom = 130.0
+text = "ARROW DOWN"
+label_settings = SubResource("LabelSettings_lfe4j")
+
+[node name="UI_1" parent="." unique_id=1098849353 node_paths=PackedStringArray("magician") instance=ExtResource("22_bamb7")]
+offset_left = -1.0
+offset_top = 34.0
+offset_right = 39.0
+offset_bottom = 74.0
+scale = Vector2(1.175, 1.175)
+magician = NodePath("../magician")

@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://bvo4thlicr6q6"]
+
+[ext_resource type="Texture2D" uid="uid://djkf8wb8cb623" path="res://art/folliage/F36283AD-1B73-4A2D-A7DA-4F8241FFA979.png" id="1_ub2hs"]
+[ext_resource type="Texture2D" uid="uid://b8glkuoblrq5f" path="res://art/folliage/F6D300D3-6F8F-4B60-94A2-EE7588612A67.png" id="2_33wdf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kq4oe"]
+size = Vector2(87, 151)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kbi1"]
+atlas = ExtResource("1_ub2hs")
+region = Rect2(16, 5, 104, 153)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0na3t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3kbi1")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34dey"]
+atlas = ExtResource("1_ub2hs")
+region = Rect2(120, 5, 104, 91)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yc10j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34dey")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhgrw"]
+atlas = ExtResource("1_ub2hs")
+region = Rect2(224, 5, 104, 65)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jscy8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhgrw")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" unique_id=1968190808]
+texture_filter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=975607986]
+position = Vector2(2.5, -12.5)
+shape = SubResource("RectangleShape2D_kq4oe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=752627846]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_0na3t")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1994346543]
+texture_filter = 1
+position = Vector2(2, -70)
+sprite_frames = SubResource("SpriteFrames_yc10j")
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="." unique_id=1142070050]
+texture_filter = 1
+position = Vector2(43, 30)
+rotation = -1.4854785
+sprite_frames = SubResource("SpriteFrames_jscy8")
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="." unique_id=1212114878]
+texture_filter = 1
+position = Vector2(-11.000006, 18.000002)
+rotation = -1.7201557
+sprite_frames = SubResource("SpriteFrames_jscy8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=253181541]
+position = Vector2(0, -37)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_33wdf")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=62336718]
+position = Vector2(0, 46)
+rotation = 2.9304008
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_33wdf")

@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var anim: AnimatedSprite2D = $animation
+
 var blob = preload("res://gameObject/blob type/normal.tscn")
 var triple_blob = preload("res://gameObject/blob type/triple.tscn")
 
@@ -25,7 +27,10 @@ func spawn_blob(blob):
 	"""Make a blob spawn"""
 	var b = blob.instantiate()
 	b.position = Vector2(128., -64.)
-	b.linear_velocity = Vector2(256., -800.)
+	if b.is_in_group("gravity"): 
+		b.linear_velocity = Vector2(256., -600.)
+	else :
+		b.linear_velocity = Vector2(256., -800.)
 	add_child(b)
 	
 func choose_blob():
@@ -33,4 +38,10 @@ func choose_blob():
 
 func summon(blob):
 	spawn_blob(blob)
+	anim.play("summon")
 	Score.score += 1
+	
+	scale = Vector2(0.9,0.9)
+	await get_tree().create_timer(1.3).timeout
+	anim.play("idle")
+	scale = Vector2(1,1)

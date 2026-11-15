@@ -1,6 +1,7 @@
-[gd_scene format=3 uid="uid://caeme40hjakx7"]
+[gd_scene format=3 uid="uid://155xx7s6y6ta"]
 
 [ext_resource type="AudioStream" uid="uid://cx5cjp1pr2oqj" path="res://art/sound/blob.mp3" id="1_bv48q"]
+[ext_resource type="AudioStream" uid="uid://d1uvjwmvq7rwm" path="res://art/sound/magic-blobing-main-loop.mp3" id="1_k22d5"]
 [ext_resource type="Texture2D" uid="uid://5v4sq37dqi8o" path="res://art/bg/IMG_6977.png" id="2_k22d5"]
 [ext_resource type="Script" uid="uid://d1ahccofte7rn" path="res://scripts/cam_sway.gd" id="3_k6a82"]
 [ext_resource type="Texture2D" uid="uid://dha6nta2bxt54" path="res://art/bg/IMG_6975.png" id="4_1sb0y"]
@@ -13,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://np0npwj27ru4" path="res://gameObject/blob type/normal.tscn" id="11_73m23"]
 [ext_resource type="PackedScene" uid="uid://dolv2l0bo0731" path="res://gameObject/blob type/triple.tscn" id="12_45kkt"]
 [ext_resource type="PackedScene" uid="uid://dkh2s285bh32u" path="res://gameObject/player.tscn" id="13_taw0e"]
-[ext_resource type="PackedScene" uid="uid://bsbtpp84pdo2k" path="res://UI/ui.tscn" id="14_7egwj"]
+[ext_resource type="PackedScene" uid="uid://bsbtpp84pdo2k" path="res://UI/ui_2.tscn" id="14_7egwj"]
 [ext_resource type="PackedScene" uid="uid://cv6634q6hcp7e" path="res://gameObject/kill_zone.tscn" id="15_nquw4"]
 [ext_resource type="PackedScene" uid="uid://crw4rmtamfyyy" path="res://gameObject/win_zone.tscn" id="16_3buw8"]
 [ext_resource type="PackedScene" uid="uid://clurwpaw7qc3t" path="res://gameObject/vines.tscn" id="17_vwjju"]
@@ -45,10 +46,21 @@ font = ExtResource("19_srjk8")
 font_size = 14
 font_color = Color(0.85882354, 0.49019608, 0.5254902, 1)
 
-[node name="scene2" type="Node2D" unique_id=1097035717]
+[sub_resource type="LabelSettings" id="LabelSettings_k22d5"]
+font = ExtResource("19_srjk8")
+font_size = 32
+font_color = Color(0.85882354, 0.49019608, 0.5254902, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_k6a82"]
+font = ExtResource("19_srjk8")
+font_size = 14
+font_color = Color(0.85882354, 0.49019608, 0.5254902, 1)
+
+[node name="scene" type="Node2D" unique_id=1097035717]
 
 [node name="music" type="AudioStreamPlayer" parent="." unique_id=1960686319]
-volume_db = -4.0
+stream = ExtResource("1_k22d5")
+volume_db = -10.0
 autoplay = true
 
 [node name="blob" type="AudioStreamPlayer" parent="." unique_id=1707155068]
@@ -61,10 +73,6 @@ position = Vector2(0, 18)
 position = Vector2(0, -97)
 texture = ExtResource("2_k22d5")
 script = ExtResource("3_k6a82")
-
-[node name="bg2" type="Sprite2D" parent="art" unique_id=1819905164]
-position = Vector2(0, -97)
-texture = ExtResource("4_1sb0y")
 
 [node name="Sprite2D" type="Sprite2D" parent="art" unique_id=2137831404]
 position = Vector2(-5, -97)
@@ -87,7 +95,6 @@ offset_right = 39.0
 offset_bottom = 74.0
 scale = Vector2(1.175, 1.175)
 magician = NodePath("../magician")
-metadata/_edit_use_anchors_ = true
 
 [node name="kill_zone" parent="." unique_id=1597284461 instance=ExtResource("15_nquw4")]
 visible = false
@@ -181,7 +188,6 @@ offset_top = -590.0
 offset_right = 953.0
 offset_bottom = -590.0
 grow_horizontal = 0
-metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Control" unique_id=827218413]
 position = Vector2(-214, -56)
@@ -224,3 +230,61 @@ offset_right = -62.0
 offset_bottom = 130.0
 text = "ARROW DOWN"
 label_settings = SubResource("LabelSettings_lfe4j")
+
+[node name="bg2" type="Sprite2D" parent="." unique_id=1819905164]
+position = Vector2(0, -79)
+texture = ExtResource("4_1sb0y")
+
+[node name="Control2" type="Control" parent="." unique_id=1732051574]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 953.0
+offset_top = -590.0
+offset_right = 953.0
+offset_bottom = -590.0
+grow_horizontal = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Control2" unique_id=2026969224]
+position = Vector2(-214, -56)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("18_rur20")
+
+[node name="Label" type="Label" parent="Control2" unique_id=1601642399]
+layout_mode = 0
+offset_left = -264.0
+offset_top = 17.0
+offset_right = -154.0
+offset_bottom = 61.0
+text = "SPACE"
+label_settings = SubResource("LabelSettings_k22d5")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Control2" unique_id=1681308182]
+position = Vector2(-311, 48)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("18_rur20")
+
+[node name="Label2" type="Label" parent="Control2" unique_id=2117071044]
+layout_mode = 0
+offset_left = -347.0
+offset_top = 86.0
+offset_right = -237.0
+offset_bottom = 130.0
+text = "ARROW UP"
+label_settings = SubResource("LabelSettings_k6a82")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Control2" unique_id=2023506909]
+position = Vector2(-127, 48)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("18_rur20")
+
+[node name="Label3" type="Label" parent="Control2" unique_id=800827349]
+layout_mode = 0
+offset_left = -172.0
+offset_top = 86.0
+offset_right = -62.0
+offset_bottom = 130.0
+text = "ARROW DOWN"
+label_settings = SubResource("LabelSettings_k6a82")

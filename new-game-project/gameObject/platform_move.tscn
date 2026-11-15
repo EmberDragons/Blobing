@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dty0brkcaf0mj"]
+
+[ext_resource type="Texture2D" uid="uid://djkf8wb8cb623" path="res://art/folliage/F36283AD-1B73-4A2D-A7DA-4F8241FFA979.png" id="1_vqqcr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kq4oe"]
+size = Vector2(89, 114)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kbi1"]
+atlas = ExtResource("1_vqqcr")
+region = Rect2(16, 5, 104, 153)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0na3t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3kbi1")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" unique_id=1968190808]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=975607986]
+position = Vector2(2.5, 1)
+shape = SubResource("RectangleShape2D_kq4oe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=752627846]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_0na3t")

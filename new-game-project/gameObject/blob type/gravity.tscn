@@ -34,7 +34,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_johoh"]
 radius = 28.0
 
-[node name="gravity_inversed" type="RigidBody2D" unique_id=305138964 groups=["blob"]]
+[node name="gravity_inversed" type="RigidBody2D" unique_id=305138964 groups=["blob", "gravity"]]
 texture_filter = 1
 collision_layer = 3
 collision_mask = 3
@@ -42,6 +42,7 @@ physics_material_override = SubResource("PhysicsMaterial_johoh")
 gravity_scale = -1.0
 lock_rotation = true
 script = ExtResource("1_88h5m")
+max_velocity = 850.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1891245437]
 shape = SubResource("CircleShape2D_kq4oe")

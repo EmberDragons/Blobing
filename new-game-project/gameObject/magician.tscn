@@ -120,5 +120,3 @@ scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_j3blc")
 animation = &"summon"
 autoplay = "idle"
-frame = 8
-frame_progress = 0.9831754

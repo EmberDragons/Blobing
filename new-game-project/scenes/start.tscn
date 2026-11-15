@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bn8broef81s12" path="res://art/bg/start-screen.png" id="1_jaeev"]
 [ext_resource type="Texture2D" uid="uid://dv8doutxeycr1" path="res://art/start-button.png" id="2_u80x2"]
 [ext_resource type="Script" uid="uid://bd8chsonap17s" path="res://scripts/obj/start-button.gd" id="3_bodal"]
+[ext_resource type="AudioStream" uid="uid://d1uvjwmvq7rwm" path="res://art/sound/magic-blobing-main-loop.mp3" id="4_kdmts"]
 
 [node name="Start" type="Node2D" unique_id=863303600]
 
@@ -18,3 +19,8 @@ texture = ExtResource("2_u80x2")
 color = Color(1, 1, 1, 0)
 polygon = PackedVector2Array(14, 179, 187, 198, 221, 219, 239, 251, 216, 297, 56, 322, -165, 313, -229, 269, -218, 223, -117, 184)
 script = ExtResource("3_bodal")
+
+[node name="music" type="AudioStreamPlayer" parent="." unique_id=1876357291]
+stream = ExtResource("4_kdmts")
+volume_db = -4.0
+autoplay = true

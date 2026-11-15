@@ -1,0 +1,418 @@
+[gd_scene format=3 uid="uid://bn8whmvrds1xu"]
+
+[ext_resource type="Script" uid="uid://cioshwuaswkj8" path="res://scripts/incantations.gd" id="1_jwcp0"]
+[ext_resource type="Texture2D" uid="uid://cool61jyfr20q" path="res://art/ui/uis.png" id="2_jme7r"]
+[ext_resource type="Texture2D" uid="uid://cbb8t8ysgfycj" path="res://art/slimes/normal.png" id="3_p3w0v"]
+[ext_resource type="Script" uid="uid://bxniubmai0bsg" path="res://scripts/random_letters_gen.gd" id="4_cuj4b"]
+[ext_resource type="PackedScene" uid="uid://np0npwj27ru4" path="res://gameObject/blob type/normal.tscn" id="5_2ddac"]
+[ext_resource type="FontFile" uid="uid://b0lct4a1cm3hn" path="res://fonts/MyCustomFont.ttf" id="6_h4iqs"]
+[ext_resource type="Texture2D" uid="uid://dl7f13to7bkq7" path="res://art/slimes/fluffy.png" id="7_4qntl"]
+[ext_resource type="PackedScene" uid="uid://d4m0y0t8te6l4" path="res://gameObject/blob type/fluffy.tscn" id="8_ep6hj"]
+[ext_resource type="Texture2D" uid="uid://lg4ihcxi1qby" path="res://art/slimes/gravity.png" id="9_gd80e"]
+[ext_resource type="PackedScene" uid="uid://bp4t7li86usdm" path="res://gameObject/blob type/gravity.tscn" id="10_ll5fy"]
+[ext_resource type="Texture2D" uid="uid://yuh2cu2di50r" path="res://art/slimes/triple.png" id="11_wo70n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c7tqi"]
+
+[sub_resource type="Animation" id="Animation_tbgi4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_tefeu"]
+resource_name = "finish"
+length = 0.46666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o6xl0"]
+_data = {
+&"RESET": SubResource("Animation_tbgi4"),
+&"finish": SubResource("Animation_tefeu")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vv6vu"]
+atlas = ExtResource("3_p3w0v")
+region = Rect2(292, 46, 69, 69)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o6xl0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vv6vu")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tbgi4"]
+font = ExtResource("6_h4iqs")
+font_size = 34
+
+[sub_resource type="LabelSettings" id="LabelSettings_jyhfs"]
+font = ExtResource("6_h4iqs")
+font_size = 34
+
+[sub_resource type="LabelSettings" id="LabelSettings_tefeu"]
+font = ExtResource("6_h4iqs")
+font_size = 34
+
+[sub_resource type="LabelSettings" id="LabelSettings_o6xl0"]
+font = ExtResource("6_h4iqs")
+font_size = 34
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cbfhl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0ncg"]
+atlas = ExtResource("7_4qntl")
+region = Rect2(210, 47, 76, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3sbvi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u0ncg")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tipki"]
+font = ExtResource("6_h4iqs")
+font_size = 34
+
+[sub_resource type="LabelSettings" id="LabelSettings_85g3d"]
+font = ExtResource("6_h4iqs")
+font_size = 34
+
+[sub_resource type="LabelSettings" id="LabelSettings_choun"]
+font = ExtResource("6_h4iqs")
+font_size = 34
+
+[sub_resource type="LabelSettings" id="LabelSettings_ya4ey"]
+font = ExtResource("6_h4iqs")
+font_size = 34
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ve6w7"]
+atlas = ExtResource("9_gd80e")
+region = Rect2(328, 292, 76, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k5r18"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ve6w7")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_eb6dy"]
+font = ExtResource("6_h4iqs")
+font_size = 34
+
+[sub_resource type="LabelSettings" id="LabelSettings_trceg"]
+font = ExtResource("6_h4iqs")
+font_size = 34
+
+[sub_resource type="LabelSettings" id="LabelSettings_a8y0u"]
+font = ExtResource("6_h4iqs")
+font_size = 34
+
+[sub_resource type="LabelSettings" id="LabelSettings_jkv2x"]
+font = ExtResource("6_h4iqs")
+font_size = 34
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_no28b"]
+atlas = ExtResource("11_wo70n")
+region = Rect2(210, 121, 74, 74)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4fiuh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_no28b")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jbj1t"]
+font = ExtResource("6_h4iqs")
+font_size = 34
+
+[sub_resource type="LabelSettings" id="LabelSettings_muem4"]
+font = ExtResource("6_h4iqs")
+font_size = 34
+
+[sub_resource type="LabelSettings" id="LabelSettings_dp3eg"]
+font = ExtResource("6_h4iqs")
+font_size = 34
+
+[sub_resource type="LabelSettings" id="LabelSettings_kq4oe"]
+font = ExtResource("6_h4iqs")
+font_size = 34
+
+[node name="UI_1" type="Control" unique_id=1098849353 node_paths=PackedStringArray("l_anim")]
+top_level = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.1, 1.1)
+script = ExtResource("1_jwcp0")
+l_anim = [NodePath("HBoxContainer/1/AnimationPlayer"), NodePath("HBoxContainer/2/AnimationPlayer"), NodePath("HBoxContainer/3/AnimationPlayer"), NodePath("HBoxContainer/4/AnimationPlayer")]
+t_press_col = Color(0.6666667, 0.26666668, 0.39607844, 1)
+t_idle_col = Color(1, 0.6509804, 0.61960787, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1709082923]
+position = Vector2(0, -76.99999)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_jme7r")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=39754825]
+custom_minimum_size = Vector2(1200, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -695.0
+offset_top = 345.0
+offset_right = 955.0
+offset_bottom = 445.001
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 65
+
+[node name="1" type="PanelContainer" parent="HBoxContainer" unique_id=1287316914]
+custom_minimum_size = Vector2(300, 20)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_c7tqi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/1" unique_id=1079198766]
+libraries/ = SubResource("AnimationLibrary_o6xl0")
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/1" unique_id=1553073855]
+layout_mode = 2
+color = Color(1, 0.6509804, 0.61960787, 0)
+
+[node name="Control" type="Control" parent="HBoxContainer/1" unique_id=1215564702]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+offset_transform_enabled = true
+offset_transform_position = Vector2(-87, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HBoxContainer/1/Control" unique_id=1466069487]
+scale = Vector2(1.4, 1.4)
+sprite_frames = SubResource("SpriteFrames_o6xl0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/1" unique_id=1413044780]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+offset_transform_enabled = true
+offset_transform_position = Vector2(-42.52, 0)
+script = ExtResource("4_cuj4b")
+blob = ExtResource("5_2ddac")
+
+[node name="1" type="Label" parent="HBoxContainer/1/HBoxContainer" unique_id=818311393]
+layout_mode = 2
+text = "E"
+label_settings = SubResource("LabelSettings_tbgi4")
+
+[node name="2" type="Label" parent="HBoxContainer/1/HBoxContainer" unique_id=1614892670]
+layout_mode = 2
+text = "F"
+label_settings = SubResource("LabelSettings_jyhfs")
+
+[node name="3" type="Label" parent="HBoxContainer/1/HBoxContainer" unique_id=646968053]
+layout_mode = 2
+text = "J"
+label_settings = SubResource("LabelSettings_tefeu")
+
+[node name="4" type="Label" parent="HBoxContainer/1/HBoxContainer" unique_id=819067032]
+layout_mode = 2
+text = "W"
+label_settings = SubResource("LabelSettings_o6xl0")
+
+[node name="2" type="PanelContainer" parent="HBoxContainer" unique_id=386882760]
+custom_minimum_size = Vector2(300, 20)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_cbfhl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/2" unique_id=1551109340]
+libraries/ = SubResource("AnimationLibrary_o6xl0")
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/2" unique_id=1150519670]
+layout_mode = 2
+color = Color(1, 0.6509804, 0.61960787, 0)
+
+[node name="Control" type="Control" parent="HBoxContainer/2" unique_id=1511967405]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+offset_transform_enabled = true
+offset_transform_position = Vector2(-87, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HBoxContainer/2/Control" unique_id=1723727181]
+scale = Vector2(1.4, 1.4)
+sprite_frames = SubResource("SpriteFrames_3sbvi")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/2" unique_id=74287526]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+offset_transform_enabled = true
+offset_transform_position = Vector2(-42.52, 0)
+script = ExtResource("4_cuj4b")
+blob = ExtResource("8_ep6hj")
+
+[node name="1" type="Label" parent="HBoxContainer/2/HBoxContainer" unique_id=606279670]
+layout_mode = 2
+text = "K"
+label_settings = SubResource("LabelSettings_tipki")
+
+[node name="2" type="Label" parent="HBoxContainer/2/HBoxContainer" unique_id=332056136]
+layout_mode = 2
+text = "F"
+label_settings = SubResource("LabelSettings_85g3d")
+
+[node name="3" type="Label" parent="HBoxContainer/2/HBoxContainer" unique_id=1197533424]
+layout_mode = 2
+text = "K"
+label_settings = SubResource("LabelSettings_choun")
+
+[node name="4" type="Label" parent="HBoxContainer/2/HBoxContainer" unique_id=2015535721]
+layout_mode = 2
+text = "D"
+label_settings = SubResource("LabelSettings_ya4ey")
+
+[node name="3" type="PanelContainer" parent="HBoxContainer" unique_id=1770750875]
+custom_minimum_size = Vector2(300, 20)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_cbfhl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/3" unique_id=85785850]
+libraries/ = SubResource("AnimationLibrary_o6xl0")
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/3" unique_id=1894406356]
+layout_mode = 2
+color = Color(1, 0.6509804, 0.61960787, 0)
+
+[node name="Control" type="Control" parent="HBoxContainer/3" unique_id=259333468]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+offset_transform_enabled = true
+offset_transform_position = Vector2(-87, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HBoxContainer/3/Control" unique_id=568932132]
+scale = Vector2(1.4, 1.4)
+sprite_frames = SubResource("SpriteFrames_k5r18")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/3" unique_id=1801181262]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+offset_transform_enabled = true
+offset_transform_position = Vector2(-42.52, 0)
+script = ExtResource("4_cuj4b")
+blob = ExtResource("10_ll5fy")
+
+[node name="1" type="Label" parent="HBoxContainer/3/HBoxContainer" unique_id=597388070]
+layout_mode = 2
+text = "E"
+label_settings = SubResource("LabelSettings_eb6dy")
+
+[node name="2" type="Label" parent="HBoxContainer/3/HBoxContainer" unique_id=1496543180]
+layout_mode = 2
+text = "S"
+label_settings = SubResource("LabelSettings_trceg")
+
+[node name="3" type="Label" parent="HBoxContainer/3/HBoxContainer" unique_id=873538546]
+layout_mode = 2
+text = "V"
+label_settings = SubResource("LabelSettings_a8y0u")
+
+[node name="4" type="Label" parent="HBoxContainer/3/HBoxContainer" unique_id=1246597776]
+layout_mode = 2
+text = "B"
+label_settings = SubResource("LabelSettings_jkv2x")
+
+[node name="4" type="PanelContainer" parent="HBoxContainer" unique_id=16584485]
+custom_minimum_size = Vector2(300, 20)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_cbfhl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/4" unique_id=407229412]
+libraries/ = SubResource("AnimationLibrary_o6xl0")
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/4" unique_id=867787061]
+layout_mode = 2
+color = Color(1, 0.6509804, 0.61960787, 0)
+
+[node name="Control" type="Control" parent="HBoxContainer/4" unique_id=1020047445]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+offset_transform_enabled = true
+offset_transform_position = Vector2(-87, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HBoxContainer/4/Control" unique_id=1475596977]
+scale = Vector2(1.4, 1.4)
+sprite_frames = SubResource("SpriteFrames_4fiuh")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/4" unique_id=1863853954]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+offset_transform_enabled = true
+offset_transform_position = Vector2(-42.52, 0)
+script = ExtResource("4_cuj4b")
+
+[node name="1" type="Label" parent="HBoxContainer/4/HBoxContainer" unique_id=8956986]
+layout_mode = 2
+text = "E"
+label_settings = SubResource("LabelSettings_jbj1t")
+
+[node name="2" type="Label" parent="HBoxContainer/4/HBoxContainer" unique_id=1674912449]
+layout_mode = 2
+text = "F"
+label_settings = SubResource("LabelSettings_muem4")
+
+[node name="3" type="Label" parent="HBoxContainer/4/HBoxContainer" unique_id=741152346]
+layout_mode = 2
+text = "J"
+label_settings = SubResource("LabelSettings_dp3eg")
+
+[node name="4" type="Label" parent="HBoxContainer/4/HBoxContainer" unique_id=1491505316]
+layout_mode = 2
+text = "W"
+label_settings = SubResource("LabelSettings_kq4oe")

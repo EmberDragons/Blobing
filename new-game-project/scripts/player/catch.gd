@@ -21,4 +21,5 @@ func _on_ball_touch(body: Node2D) -> void:
 		body.block(slime_pos)
 		anim.play("shoot")
 		await get_tree().create_timer(time_throw).timeout
-		body.unblock()
+		if body != null:
+			body.unblock()
