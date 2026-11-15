@@ -6,7 +6,7 @@ A pong-inspired game where you have to use slimes to enter an enchanting forest.
 
 # Play
 
-You can find the game on [itch.io](https://firn.itch.io/magic-blobbing) and play with arrow up, arrow down, and space.
+You can find the game on [itch.io](https://hvrupi.itch.io/magic-blobbing) and play with arrow up, arrow down, and space.
 Enjoy !
 
 # Creation
