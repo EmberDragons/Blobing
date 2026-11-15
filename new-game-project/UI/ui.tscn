@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cioshwuaswkj8" path="res://scripts/incantations.gd" id="1_hat8c"]
 [ext_resource type="Texture2D" uid="uid://cbb8t8ysgfycj" path="res://art/slimes/normal.png" id="2_3sbvi"]
 [ext_resource type="Script" uid="uid://bxniubmai0bsg" path="res://scripts/random_letters_gen.gd" id="3_nm1m0"]
-[ext_resource type="FontFile" uid="uid://d36k14xdkjwsx" path="res://fonts/Baltime.otf" id="4_c7tqi"]
+[ext_resource type="FontFile" uid="uid://b0lct4a1cm3hn" path="res://fonts/MyCustomFont.ttf" id="4_hat8c"]
 
 [sub_resource type="Animation" id="Animation_tbgi4"]
 length = 0.001
@@ -58,67 +58,67 @@ animations = [{
 }]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tbgi4"]
-font = ExtResource("4_c7tqi")
+font = ExtResource("4_hat8c")
 font_size = 34
 
 [sub_resource type="LabelSettings" id="LabelSettings_jyhfs"]
-font = ExtResource("4_c7tqi")
+font = ExtResource("4_hat8c")
 font_size = 34
 
 [sub_resource type="LabelSettings" id="LabelSettings_tefeu"]
-font = ExtResource("4_c7tqi")
+font = ExtResource("4_hat8c")
 font_size = 34
 
 [sub_resource type="LabelSettings" id="LabelSettings_o6xl0"]
-font = ExtResource("4_c7tqi")
+font = ExtResource("4_hat8c")
 font_size = 34
 
 [sub_resource type="LabelSettings" id="LabelSettings_tipki"]
-font = ExtResource("4_c7tqi")
+font = ExtResource("4_hat8c")
 font_size = 34
 
 [sub_resource type="LabelSettings" id="LabelSettings_85g3d"]
-font = ExtResource("4_c7tqi")
+font = ExtResource("4_hat8c")
 font_size = 34
 
 [sub_resource type="LabelSettings" id="LabelSettings_choun"]
-font = ExtResource("4_c7tqi")
+font = ExtResource("4_hat8c")
 font_size = 34
 
 [sub_resource type="LabelSettings" id="LabelSettings_ya4ey"]
-font = ExtResource("4_c7tqi")
+font = ExtResource("4_hat8c")
 font_size = 34
 
 [sub_resource type="LabelSettings" id="LabelSettings_eb6dy"]
-font = ExtResource("4_c7tqi")
+font = ExtResource("4_hat8c")
 font_size = 34
 
 [sub_resource type="LabelSettings" id="LabelSettings_trceg"]
-font = ExtResource("4_c7tqi")
+font = ExtResource("4_hat8c")
 font_size = 34
 
 [sub_resource type="LabelSettings" id="LabelSettings_a8y0u"]
-font = ExtResource("4_c7tqi")
+font = ExtResource("4_hat8c")
 font_size = 34
 
 [sub_resource type="LabelSettings" id="LabelSettings_jkv2x"]
-font = ExtResource("4_c7tqi")
+font = ExtResource("4_hat8c")
 font_size = 34
 
 [sub_resource type="LabelSettings" id="LabelSettings_jbj1t"]
-font = ExtResource("4_c7tqi")
+font = ExtResource("4_hat8c")
 font_size = 34
 
 [sub_resource type="LabelSettings" id="LabelSettings_muem4"]
-font = ExtResource("4_c7tqi")
+font = ExtResource("4_hat8c")
 font_size = 34
 
 [sub_resource type="LabelSettings" id="LabelSettings_dp3eg"]
-font = ExtResource("4_c7tqi")
+font = ExtResource("4_hat8c")
 font_size = 34
 
 [sub_resource type="LabelSettings" id="LabelSettings_kq4oe"]
-font = ExtResource("4_c7tqi")
+font = ExtResource("4_hat8c")
 font_size = 34
 
 [node name="UI" type="Control" unique_id=1098849353 node_paths=PackedStringArray("l_anim")]
