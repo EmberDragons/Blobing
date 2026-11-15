@@ -12,7 +12,7 @@
 position = Vector2(960, 600)
 texture = ExtResource("1_3d26k")
 
-[node name="TextEdit" type="Label" parent="." unique_id=1175771184]
+[node name="Label" type="Label" parent="." unique_id=1175771184]
 offset_left = 829.0
 offset_top = 577.0
 offset_right = 1085.0

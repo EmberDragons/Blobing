@@ -8,4 +8,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+		var c = Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)
+		if c:
+			if Score.level == 1:
+				get_tree().change_scene_to_file("res://scenes/level_2.tscn")
+			elif Score.level == 2:
+				get_tree().change_scene_to_file("res://scenes/level_3.tscn")
+			elif Score.level == 3:
+				get_tree().change_scene_to_file("res://scenes/credits.tscn")
+			Score.level += 1
