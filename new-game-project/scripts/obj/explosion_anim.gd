@@ -5,8 +5,13 @@ extends StaticBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("yes")
 	fires.emitting = true
 	cloud.emitting = true
 	await get_tree().create_timer(0.8).timeout
 	queue_free()
+
+
+
+func inside(body: Node2D) -> void:
+	if (body.is_in_group("blob")):
+		body.linear_velocity += 5*(body.position-position).normalized()*(16-sqrt((body.position.x-position.x)**2+(body.position.x-position.x)**2))

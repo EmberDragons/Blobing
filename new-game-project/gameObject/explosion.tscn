@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://b8eq3jutry0j6" path="res://art/slimes/trails/fluff.png" id="13_rty78"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kq4oe"]
-radius = 2.0
+radius = 0.01
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kq4oe"]
 animations = [{
@@ -55,6 +55,9 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_lfe4j"]
+radius = 16.300306
+
 [node name="explode" type="StaticBody2D" unique_id=42527303]
 scale = Vector2(10, 10)
 script = ExtResource("1_enosb")
@@ -67,6 +70,7 @@ position = Vector2(0, 1.9999999)
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_kq4oe")
 autoplay = "default"
+frame_progress = 0.39190382
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=335829329]
 emitting = false
@@ -100,3 +104,10 @@ initial_velocity_max = 222.72
 scale_amount_min = 0.8
 scale_amount_max = 3.0
 color = Color(0.96, 0.8352, 0.8352, 0.7411765)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=760705444]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1247840390]
+shape = SubResource("CircleShape2D_lfe4j")
+
+[connection signal="body_entered" from="Area2D" to="." method="inside"]
