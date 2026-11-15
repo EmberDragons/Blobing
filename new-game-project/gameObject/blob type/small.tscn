@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cb0a3fhnkk3v3"]
+
+[ext_resource type="Script" uid="uid://6qqhiuadsbod" path="res://scripts/slime/slime.gd" id="1_2iji2"]
+[ext_resource type="Texture2D" uid="uid://dybml1h66pau1" path="res://Custom-Icon-Design-Flatastic-6-Circle.512.png" id="1_kwq0s"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_johoh"]
+friction = 0.0
+bounce = 0.8
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kq4oe"]
+radius = 20.024984
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_johoh"]
+radius = 22.0
+
+[node name="small" type="RigidBody2D" unique_id=305138964]
+collision_layer = 3
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_johoh")
+lock_rotation = true
+script = ExtResource("1_2iji2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1891245437]
+shape = SubResource("CircleShape2D_kq4oe")
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=1255753873]
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("1_kwq0s")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1673206737]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=915537858]
+shape = SubResource("CircleShape2D_johoh")
+
+[connection signal="body_exited" from="Area2D" to="." method="_on_body_collided"]

@@ -1,4 +1,3 @@
-class_name slime
 extends RigidBody2D
 
 var saved_velocity : Vector2
