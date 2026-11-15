@@ -15,3 +15,5 @@ func _ready() -> void:
 func inside(body: Node2D) -> void:
 	if (body.is_in_group("blob")):
 		body.linear_velocity += 5*(body.position-position).normalized()*(16-sqrt((body.position.x-position.x)**2+(body.position.x-position.x)**2))
+	if body.is_in_group("fireable"):
+		body.burn()

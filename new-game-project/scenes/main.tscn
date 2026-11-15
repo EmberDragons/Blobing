@@ -14,19 +14,24 @@
 [ext_resource type="PackedScene" uid="uid://dolv2l0bo0731" path="res://gameObject/blob type/triple.tscn" id="7_choun"]
 [ext_resource type="PackedScene" uid="uid://bsbtpp84pdo2k" path="res://UI/ui.tscn" id="9_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://cv6634q6hcp7e" path="res://gameObject/kill_zone.tscn" id="10_eb6dy"]
+[ext_resource type="Script" uid="uid://d1ahccofte7rn" path="res://scripts/cam_sway.gd" id="12_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://crw4rmtamfyyy" path="res://gameObject/win_zone.tscn" id="14_jbj1t"]
+[ext_resource type="PackedScene" uid="uid://clurwpaw7qc3t" path="res://gameObject/vines.tscn" id="17_muem4"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kq4oe"]
 distance = -119.83571
 
-[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_a8y0u"]
-points = PackedVector2Array(-21.739136, 54.694847, -65.94203, 56.45541, -115.57971, 22.065731, -75.72464, -5.399063, 7.6087036, -2.3474197, -63.405792, 8.098591, -84.78261, 17.370895, -80.434784, 27.112682, -25.72464, 32.981228, -14.130432, 45.89203)
-
-[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_5gtvn"]
-points = PackedVector2Array(10.144928, 91.78406, -31.521744, 87.44133, -50.36232, 73.35682, -76.08696, 72.88734, -57.246384, 82.62912, -81.159424, 98.239456, -101.811584, 105.63382, -117.3913, 111.85448, -116.66666, 118.192505, -77.53624, 118.192505, -84.78261, 113.02819)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfe4j"]
+size = Vector2(29.11737, 37.33292)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_a8y0u"]
 normal = Vector2(0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hdlqr"]
+size = Vector2(97.5651, 22.468706)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kq4oe"]
+size = Vector2(117, 451)
 
 [node name="scene" type="Node2D" unique_id=1097035717]
 
@@ -43,6 +48,7 @@ position = Vector2(0, 18)
 [node name="bg" type="Sprite2D" parent="art" unique_id=1316790238]
 position = Vector2(0, -97)
 texture = ExtResource("1_ya4ey")
+script = ExtResource("12_jkv2x")
 
 [node name="bg2" type="Sprite2D" parent="art" unique_id=1819905164]
 position = Vector2(0, -97)
@@ -51,6 +57,7 @@ texture = ExtResource("2_a8y0u")
 [node name="Sprite2D" type="Sprite2D" parent="art" unique_id=2137831404]
 position = Vector2(-5, -97)
 texture = ExtResource("3_jkv2x")
+script = ExtResource("12_jkv2x")
 
 [node name="magician" parent="." unique_id=1446377657 instance=ExtResource("1_0wfyh")]
 position = Vector2(-387, 308)
@@ -62,10 +69,10 @@ position = Vector2(553, 0)
 [node name="cam" type="Camera2D" parent="." unique_id=2026114329]
 
 [node name="UI" parent="." unique_id=1098849353 node_paths=PackedStringArray("magician") instance=ExtResource("9_ya4ey")]
-offset_left = 3.0
-offset_top = 38.0
-offset_right = 43.0
-offset_bottom = 78.0
+offset_left = -1.0
+offset_top = 34.0
+offset_right = 39.0
+offset_bottom = 74.0
 scale = Vector2(1.175, 1.175)
 magician = NodePath("../magician")
 
@@ -79,39 +86,59 @@ visible = false
 position = Vector2(-869.00006, 2.9999695)
 scale = Vector2(2.372068, 4.636084)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=331621359]
+[node name="vines" parent="." unique_id=1567880060 instance=ExtResource("17_muem4")]
+position = Vector2(-256, -3)
+
+[node name="collisions" type="Node" parent="." unique_id=871852606]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="collisions" unique_id=331621359]
 position = Vector2(0, 18)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=163506090]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="collisions/StaticBody2D" unique_id=163506090]
 position = Vector2(0, -613)
 scale = Vector2(2.76, 8.519999)
 shape = SubResource("WorldBoundaryShape2D_kq4oe")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=31795827]
-position = Vector2(-585, 117)
+[node name="StaticBody2D2" type="StaticBody2D" parent="collisions" unique_id=31795827]
+position = Vector2(-756, 164)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1337887333]
-position = Vector2(128, -697)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="collisions/StaticBody2D2" unique_id=1337887333]
+position = Vector2(163.00006, -718)
+rotation = 1.0931723
 scale = Vector2(2.76, 8.519999)
-shape = SubResource("ConvexPolygonShape2D_a8y0u")
+shape = SubResource("RectangleShape2D_lfe4j")
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=760795896]
-position = Vector2(-585, 125)
+[node name="StaticBody2D4" type="StaticBody2D" parent="collisions" unique_id=1841317263]
+position = Vector2(-203, 11)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D3" unique_id=1343849210]
-position = Vector2(128, -697)
-scale = Vector2(2.76, 8.519999)
-shape = SubResource("ConvexPolygonShape2D_5gtvn")
-
-[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=1841317263]
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D4" unique_id=756369535]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="collisions/StaticBody2D4" unique_id=756369535]
 position = Vector2(0, -613)
 scale = Vector2(2.76, 8.519999)
 shape = SubResource("WorldBoundaryShape2D_a8y0u")
 
-[node name="big" parent="." unique_id=305138964 instance=ExtResource("2_jyhfs")]
-position = Vector2(93, 134)
+[node name="StaticBody2D5" type="StaticBody2D" parent="collisions" unique_id=26707539]
+position = Vector2(-150.00002, 53.000004)
+rotation = -1.0907229
 
-[node name="fire" parent="." unique_id=592990436 instance=ExtResource("4_jyhfs")]
-position = Vector2(229, 250)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="collisions/StaticBody2D5" unique_id=198050400]
+position = Vector2(163.00006, -718)
+rotation = 1.0931723
+scale = Vector2(2.76, 8.519999)
+shape = SubResource("RectangleShape2D_lfe4j")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="collisions" unique_id=1345733326]
+position = Vector2(-81.000015, 300)
+rotation = -1.0907229
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="collisions/StaticBody2D6" unique_id=1541770656]
+position = Vector2(220.59436, -728.9457)
+rotation = 1.6014814
+scale = Vector2(2.76, 8.520001)
+shape = SubResource("RectangleShape2D_hdlqr")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="collisions" unique_id=658535363]
+position = Vector2(-756, 164)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collisions/StaticBody2D3" unique_id=972281309]
+position = Vector2(143.5, 170.5)
+shape = SubResource("RectangleShape2D_kq4oe")

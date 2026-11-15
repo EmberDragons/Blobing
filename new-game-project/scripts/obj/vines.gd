@@ -1,4 +1,6 @@
 extends Node2D
+@onready var fires: CPUParticles2D = $CPUParticles2D
+@onready var anim: AnimationPlayer = $AnimationPlayer
 
 
 # Called when the node enters the scene tree for the first time.
@@ -11,7 +13,8 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_collision(body: Node2D) -> void:
-	if body.is_in_group("fire"):
-		body.die()
-		queue_free()
+func burn():
+	fires.emitting = true
+	anim.play("burning")
+	await get_tree().create_timer(0.6).timeout
+	queue_free()

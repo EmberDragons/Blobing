@@ -8,6 +8,10 @@ extends Control
 @export var t_press_col = Color.LIME_GREEN
 @export var t_idle_col = Color.WEB_GRAY
 
+
+var l = ["A","C","D","E","F",
+"Q","R","S","W","X","Z"]
+
 var l_pos = [0,0,0,0]
 
 var time_left:float = 5
@@ -48,7 +52,7 @@ func _process(delta: float) -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _unhandled_input(event):
 	if event is InputEventKey:
-		if event.pressed:
+		if event.pressed and OS.get_keycode_string(event.keycode) in l:
 			for i in range(len(countainer.get_children())):
 				var l = countainer.get_child(i).get_child(-1)
 				if l.get_child(l_pos[i]).text == OS.get_keycode_string(event.keycode):

@@ -2,8 +2,8 @@ extends HBoxContainer
 
 @export var blob = preload("res://gameObject/blob type/triple.tscn")
 
-var l = ["a","c","d","e","f","g",
-"q","r","s","t","w","x","z"]
+var l = ["a","c","d","e","f",
+"q","r","s","w","x","z"]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

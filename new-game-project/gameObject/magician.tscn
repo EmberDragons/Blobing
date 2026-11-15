@@ -22,10 +22,6 @@
 [ext_resource type="Texture2D" uid="uid://cbnneuh4mduv3" path="res://art/anim/summon/IMG_6917.png" id="19_eqpig"]
 [ext_resource type="Texture2D" uid="uid://cq85ah0x65eip" path="res://art/anim/summon/IMG_6918.png" id="20_i3gkw"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_enosb"]
-radius = 47.14
-height = 216.3
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_j3blc"]
 animations = [{
 "frames": [{
@@ -118,7 +114,6 @@ offset_bottom = 96.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=635482631]
 position = Vector2(-14.75, 0)
-shape = SubResource("CapsuleShape2D_enosb")
 
 [node name="animation" type="AnimatedSprite2D" parent="." unique_id=1152883998]
 scale = Vector2(0.25, 0.25)
