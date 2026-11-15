@@ -71,7 +71,7 @@ texture = ExtResource("5_s7g0b")
 script = ExtResource("3_wbtxt")
 
 [node name="block" type="Node2D" parent="." unique_id=899583862]
-position = Vector2(92, -226.99998)
+position = Vector2(-43, -301)
 rotation = 2.3405666
 
 [node name="AnimatableBody2D" parent="block" unique_id=506022899 instance=ExtResource("20_wa552")]
