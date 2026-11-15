@@ -17,6 +17,8 @@
 [ext_resource type="Script" uid="uid://d1ahccofte7rn" path="res://scripts/cam_sway.gd" id="12_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://crw4rmtamfyyy" path="res://gameObject/win_zone.tscn" id="14_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://clurwpaw7qc3t" path="res://gameObject/vines.tscn" id="17_muem4"]
+[ext_resource type="Texture2D" uid="uid://gh1gmxmtkgt7" path="res://art/button.png" id="18_0ld40"]
+[ext_resource type="FontFile" uid="uid://b0lct4a1cm3hn" path="res://fonts/MyCustomFont.ttf" id="19_gqmmt"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kq4oe"]
 distance = -119.83571
@@ -32,6 +34,16 @@ size = Vector2(97.5651, 22.468706)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kq4oe"]
 size = Vector2(117, 451)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kq4oe"]
+font = ExtResource("19_gqmmt")
+font_size = 32
+font_color = Color(0.85882354, 0.49019608, 0.5254902, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lfe4j"]
+font = ExtResource("19_gqmmt")
+font_size = 14
+font_color = Color(0.85882354, 0.49019608, 0.5254902, 1)
 
 [node name="scene" type="Node2D" unique_id=1097035717]
 
@@ -142,3 +154,71 @@ position = Vector2(-756, 164)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="collisions/StaticBody2D3" unique_id=972281309]
 position = Vector2(143.5, 170.5)
 shape = SubResource("RectangleShape2D_kq4oe")
+
+[node name="vines3" parent="." unique_id=1517242358 instance=ExtResource("17_muem4")]
+position = Vector2(-259, -121)
+
+[node name="vines4" parent="." unique_id=1776180932 instance=ExtResource("17_muem4")]
+position = Vector2(11, 347)
+
+[node name="vines5" parent="." unique_id=1574762746 instance=ExtResource("17_muem4")]
+position = Vector2(13, 225)
+
+[node name="vines2" parent="." unique_id=1250449310 instance=ExtResource("17_muem4")]
+position = Vector2(50, -228)
+
+[node name="vines6" parent="." unique_id=280422080 instance=ExtResource("17_muem4")]
+position = Vector2(52, -343)
+
+[node name="Control" type="Control" parent="." unique_id=1044547857]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 953.0
+offset_top = -590.0
+offset_right = 953.0
+offset_bottom = -590.0
+grow_horizontal = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Control" unique_id=827218413]
+position = Vector2(-214, -56)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("18_0ld40")
+
+[node name="Label" type="Label" parent="Control" unique_id=805498421]
+layout_mode = 0
+offset_left = -264.0
+offset_top = 17.0
+offset_right = -154.0
+offset_bottom = 61.0
+text = "SPACE"
+label_settings = SubResource("LabelSettings_kq4oe")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Control" unique_id=298988809]
+position = Vector2(-311, 48)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("18_0ld40")
+
+[node name="Label2" type="Label" parent="Control" unique_id=982642063]
+layout_mode = 0
+offset_left = -347.0
+offset_top = 86.0
+offset_right = -237.0
+offset_bottom = 130.0
+text = "ARROW UP"
+label_settings = SubResource("LabelSettings_lfe4j")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Control" unique_id=1193930951]
+position = Vector2(-127, 48)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("18_0ld40")
+
+[node name="Label3" type="Label" parent="Control" unique_id=460098104]
+layout_mode = 0
+offset_left = -172.0
+offset_top = 86.0
+offset_right = -62.0
+offset_bottom = 130.0
+text = "ARROW DOWN"
+label_settings = SubResource("LabelSettings_lfe4j")
