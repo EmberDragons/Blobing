@@ -63,7 +63,7 @@ size = Vector2(26, 174)
 size = Vector2(25, 180)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kq4oe"]
-size = Vector2(29, 191)
+size = Vector2(23, 165)
 
 [node name="playert" type="CharacterBody2D" unique_id=1650298364]
 script = ExtResource("1_q4gac")
@@ -98,7 +98,7 @@ shape = SubResource("RectangleShape2D_hdlqr")
 script = ExtResource("3_qemly")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=166886997]
-position = Vector2(-2.5, 0.5)
+position = Vector2(-5.5, 1.5)
 shape = SubResource("RectangleShape2D_kq4oe")
 
 [node name="slime_pos" type="Node2D" parent="Area2D" unique_id=1865729977]

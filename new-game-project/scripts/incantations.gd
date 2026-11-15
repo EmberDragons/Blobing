@@ -2,7 +2,7 @@ extends Control
 
 @onready var countainer: HBoxContainer = $HBoxContainer
 @export var l_anim: Array[AnimationPlayer]
-
+@export var magician: RigidBody2D
 
 
 @export var t_press_col = Color.LIME_GREEN
@@ -10,7 +10,7 @@ extends Control
 
 var l_pos = [0,0,0,0]
 
-var time_left:float = 1
+var time_left:float = 5
 
 func _ready() -> void:
 	reset()
@@ -35,6 +35,7 @@ func _process(delta: float) -> void:
 			l_pos[j] = 0
 			#spawn thinggy from j
 			l_anim[j].play("finish")
+			magician.summon(l.blob)
 			
 	time_left -= delta
 	if time_left<=0:
@@ -53,7 +54,7 @@ func _unhandled_input(event):
 				if l.get_child(l_pos[i]).text == OS.get_keycode_string(event.keycode):
 					l.get_child(l_pos[i]).get_label_settings().font_color = t_press_col
 					l_pos[i]+=1
-					time_left=1
+					time_left=5
 				else:
 					l_pos[i]=0
 					reset_s(i)

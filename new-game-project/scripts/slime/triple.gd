@@ -49,7 +49,7 @@ func spawn_philippe():
 
 func _unhandled_input(event):
 	if event is InputEventKey:
-		if event.pressed and event.keycode == KEY_LEFT:
+		if event.is_action_pressed("activate"):
 			spawn_jean()
 			spawn_eude()
 			spawn_philippe()

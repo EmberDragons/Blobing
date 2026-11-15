@@ -5,6 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://cool61jyfr20q" path="res://art/ui/uis.png" id="2_nm1m0"]
 [ext_resource type="Script" uid="uid://bxniubmai0bsg" path="res://scripts/random_letters_gen.gd" id="3_nm1m0"]
 [ext_resource type="FontFile" uid="uid://b0lct4a1cm3hn" path="res://fonts/MyCustomFont.ttf" id="4_hat8c"]
+[ext_resource type="PackedScene" uid="uid://np0npwj27ru4" path="res://gameObject/blob type/normal.tscn" id="5_6rr40"]
+[ext_resource type="Texture2D" uid="uid://dl7f13to7bkq7" path="res://art/slimes/fluffy.png" id="6_nm1m0"]
+[ext_resource type="PackedScene" uid="uid://d4m0y0t8te6l4" path="res://gameObject/blob type/fluffy.tscn" id="8_0w6e5"]
+[ext_resource type="Texture2D" uid="uid://di4a5bjca1j00" path="res://art/slimes/fire.png" id="9_o2jkc"]
+[ext_resource type="PackedScene" uid="uid://bkbwhawm0cdv2" path="res://gameObject/blob type/fire.tscn" id="10_2qbci"]
+[ext_resource type="Texture2D" uid="uid://yuh2cu2di50r" path="res://art/slimes/triple.png" id="11_ow1yt"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c7tqi"]
 
@@ -78,6 +84,21 @@ font_size = 34
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cbfhl"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0ncg"]
+atlas = ExtResource("6_nm1m0")
+region = Rect2(210, 47, 76, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3sbvi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u0ncg")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="LabelSettings" id="LabelSettings_tipki"]
 font = ExtResource("4_hat8c")
 font_size = 34
@@ -94,6 +115,21 @@ font_size = 34
 font = ExtResource("4_hat8c")
 font_size = 34
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_rsa0l"]
+atlas = ExtResource("9_o2jkc")
+region = Rect2(173, 281, 85, 78)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c7tqi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rsa0l")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="LabelSettings" id="LabelSettings_eb6dy"]
 font = ExtResource("4_hat8c")
 font_size = 34
@@ -109,6 +145,21 @@ font_size = 34
 [sub_resource type="LabelSettings" id="LabelSettings_jkv2x"]
 font = ExtResource("4_hat8c")
 font_size = 34
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_no28b"]
+atlas = ExtResource("11_ow1yt")
+region = Rect2(210, 121, 74, 74)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4fiuh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_no28b")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jbj1t"]
 font = ExtResource("4_hat8c")
@@ -132,6 +183,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+scale = Vector2(1.1, 1.1)
 script = ExtResource("1_hat8c")
 l_anim = [NodePath("HBoxContainer/1/AnimationPlayer"), NodePath("HBoxContainer/2/AnimationPlayer"), NodePath("HBoxContainer/3/AnimationPlayer"), NodePath("HBoxContainer/4/AnimationPlayer")]
 t_press_col = Color(0.6666667, 0.26666668, 0.39607844, 1)
@@ -188,6 +240,7 @@ size_flags_vertical = 4
 offset_transform_enabled = true
 offset_transform_position = Vector2(-42.52, 0)
 script = ExtResource("3_nm1m0")
+blob = ExtResource("5_6rr40")
 
 [node name="1" type="Label" parent="HBoxContainer/1/HBoxContainer" unique_id=818311393]
 layout_mode = 2
@@ -230,7 +283,7 @@ offset_transform_position = Vector2(-87, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HBoxContainer/2/Control" unique_id=1723727181]
 scale = Vector2(1.4, 1.4)
-sprite_frames = SubResource("SpriteFrames_o6xl0")
+sprite_frames = SubResource("SpriteFrames_3sbvi")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/2" unique_id=74287526]
 layout_mode = 2
@@ -239,6 +292,7 @@ size_flags_vertical = 4
 offset_transform_enabled = true
 offset_transform_position = Vector2(-42.52, 0)
 script = ExtResource("3_nm1m0")
+blob = ExtResource("8_0w6e5")
 
 [node name="1" type="Label" parent="HBoxContainer/2/HBoxContainer" unique_id=606279670]
 layout_mode = 2
@@ -281,7 +335,7 @@ offset_transform_position = Vector2(-87, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HBoxContainer/3/Control" unique_id=568932132]
 scale = Vector2(1.4, 1.4)
-sprite_frames = SubResource("SpriteFrames_o6xl0")
+sprite_frames = SubResource("SpriteFrames_c7tqi")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/3" unique_id=1801181262]
 layout_mode = 2
@@ -290,6 +344,7 @@ size_flags_vertical = 4
 offset_transform_enabled = true
 offset_transform_position = Vector2(-42.52, 0)
 script = ExtResource("3_nm1m0")
+blob = ExtResource("10_2qbci")
 
 [node name="1" type="Label" parent="HBoxContainer/3/HBoxContainer" unique_id=597388070]
 layout_mode = 2
@@ -332,7 +387,7 @@ offset_transform_position = Vector2(-87, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HBoxContainer/4/Control" unique_id=1475596977]
 scale = Vector2(1.4, 1.4)
-sprite_frames = SubResource("SpriteFrames_o6xl0")
+sprite_frames = SubResource("SpriteFrames_4fiuh")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/4" unique_id=1863853954]
 layout_mode = 2

@@ -34,7 +34,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_johoh"]
 radius = 22.0
 
-[node name="small" type="RigidBody2D" unique_id=305138964]
+[node name="small" type="RigidBody2D" unique_id=305138964 groups=["blob"]]
 texture_filter = 1
 collision_layer = 3
 collision_mask = 3

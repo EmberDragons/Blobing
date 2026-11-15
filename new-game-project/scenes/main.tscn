@@ -1,80 +1,107 @@
 [gd_scene format=3 uid="uid://155xx7s6y6ta"]
 
+[ext_resource type="PackedScene" uid="uid://c6vj7t8ep4uhc" path="res://gameObject/magician.tscn" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://dkh2s285bh32u" path="res://gameObject/player.tscn" id="1_o5qli"]
-[ext_resource type="AudioStream" uid="uid://d1uvjwmvq7rwm" path="res://art/sound/magic-blobing-main-loop.mp3" id="2_0wfyh"]
+[ext_resource type="Texture2D" uid="uid://5v4sq37dqi8o" path="res://art/bg/IMG_6977.png" id="1_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://np0npwj27ru4" path="res://gameObject/blob type/normal.tscn" id="2_0wfyh"]
+[ext_resource type="Texture2D" uid="uid://dha6nta2bxt54" path="res://art/bg/IMG_6975.png" id="2_a8y0u"]
+[ext_resource type="PackedScene" uid="uid://dr1mq8ufymbhc" path="res://gameObject/blob type/big.tscn" id="2_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://bb7ll5i1qa6w0" path="res://art/bg/IMG_6976.png" id="3_jkv2x"]
+[ext_resource type="PackedScene" uid="uid://bp4t7li86usdm" path="res://gameObject/blob type/gravity.tscn" id="3_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://bkbwhawm0cdv2" path="res://gameObject/blob type/fire.tscn" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://d4m0y0t8te6l4" path="res://gameObject/blob type/fluffy.tscn" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://dolv2l0bo0731" path="res://gameObject/blob type/triple.tscn" id="7_choun"]
+[ext_resource type="PackedScene" uid="uid://bsbtpp84pdo2k" path="res://UI/ui.tscn" id="9_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://cv6634q6hcp7e" path="res://gameObject/kill_zone.tscn" id="10_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://crw4rmtamfyyy" path="res://gameObject/win_zone.tscn" id="14_jbj1t"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sugp2"]
-normal = Vector2(1, 0)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kq4oe"]
+distance = -119.83571
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5gtvn"]
-normal = Vector2(-1, 0)
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_a8y0u"]
+points = PackedVector2Array(-21.739136, 54.694847, -65.94203, 56.45541, -115.57971, 22.065731, -75.72464, -5.399063, 7.6087036, -2.3474197, -63.405792, 8.098591, -84.78261, 17.370895, -80.434784, 27.112682, -25.72464, 32.981228, -14.130432, 45.89203)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0wfyh"]
-normal = Vector2(-1, 0)
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_5gtvn"]
+points = PackedVector2Array(-3.9855042, 92.25354, -33.69565, 91.54932, -35.507248, 76.29109, -71.014496, 75.4695, -57.246384, 82.62912, -81.159424, 98.239456, -101.811584, 105.63382, -117.3913, 111.85448, -116.66666, 118.192505, -77.53624, 118.192505, -84.78261, 113.02819)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_a8y0u"]
+normal = Vector2(0, 1)
 
 [node name="scene" type="Node2D" unique_id=1097035717]
 
-[node name="Contour" type="Node" parent="." unique_id=2114506876]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1960686319]
+volume_db = -4.0
+autoplay = true
 
-[node name="left" type="StaticBody2D" parent="Contour" unique_id=1250885827]
+[node name="art" type="Node2D" parent="." unique_id=2034347029]
+position = Vector2(0, 18)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Contour/left" unique_id=312381778]
-position = Vector2(-761, -431)
-shape = SubResource("WorldBoundaryShape2D_sugp2")
+[node name="bg" type="Sprite2D" parent="art" unique_id=1316790238]
+position = Vector2(0, -97)
+texture = ExtResource("1_ya4ey")
 
-[node name="ColorRect4" type="ColorRect" parent="Contour/left" unique_id=1441378353]
-offset_left = -1148.0
-offset_top = -562.0
-offset_right = -760.0
-offset_bottom = 530.0
+[node name="bg2" type="Sprite2D" parent="art" unique_id=1819905164]
+position = Vector2(0, -97)
+texture = ExtResource("2_a8y0u")
 
-[node name="right" type="StaticBody2D" parent="Contour" unique_id=1943214147]
-position = Vector2(2002, 13)
+[node name="Sprite2D" type="Sprite2D" parent="art" unique_id=2137831404]
+position = Vector2(-5, -97)
+texture = ExtResource("3_jkv2x")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Contour/right" unique_id=1486708002]
-position = Vector2(-1148, -431)
-shape = SubResource("WorldBoundaryShape2D_5gtvn")
-
-[node name="ColorRect4" type="ColorRect" parent="Contour/right" unique_id=1284151558]
-offset_left = -1149.0
-offset_top = -563.0
-offset_right = -761.0
-offset_bottom = 529.0
-
-[node name="top" type="StaticBody2D" parent="Contour" unique_id=30579733]
-position = Vector2(90, -1608)
-rotation = -1.5707964
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Contour/top" unique_id=1048492476]
-position = Vector2(-1148, -431)
-shape = SubResource("WorldBoundaryShape2D_0wfyh")
-
-[node name="ColorRect4" type="ColorRect" parent="Contour/top" unique_id=115282793]
-offset_left = -1148.0
-offset_top = -1246.982
-offset_right = -760.0
-offset_bottom = 1157.9003
-
-[node name="bottom" type="StaticBody2D" parent="Contour" unique_id=1751103973]
-position = Vector2(-8, 1470)
-rotation = 1.5707964
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Contour/bottom" unique_id=2103435163]
-position = Vector2(-1148, -431)
-shape = SubResource("WorldBoundaryShape2D_5gtvn")
-
-[node name="ColorRect4" type="ColorRect" parent="Contour/bottom" unique_id=1955105908]
-offset_left = -1148.0
-offset_top = -1267.3684
-offset_right = -760.0
-offset_bottom = 1141.5913
+[node name="magician" parent="." unique_id=1446377657 instance=ExtResource("1_0wfyh")]
+position = Vector2(-387, 308)
+blobs_prefab = [ExtResource("2_jyhfs"), ExtResource("4_jyhfs"), ExtResource("6_tefeu"), ExtResource("3_jyhfs"), ExtResource("2_0wfyh"), ExtResource("7_choun")]
 
 [node name="player" parent="." unique_id=1650298364 instance=ExtResource("1_o5qli")]
-position = Vector2(732, 0)
+position = Vector2(553, 0)
 
 [node name="cam" type="Camera2D" parent="." unique_id=2026114329]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1960686319]
-stream = ExtResource("2_0wfyh")
-volume_db = -4.0
-autoplay = true
+[node name="UI" parent="." unique_id=1098849353 node_paths=PackedStringArray("magician") instance=ExtResource("9_ya4ey")]
+offset_left = 3.0
+offset_top = 38.0
+offset_right = 43.0
+offset_bottom = 78.0
+scale = Vector2(1.175, 1.175)
+magician = NodePath("../magician")
+
+[node name="kill_zone" parent="." unique_id=1597284461 instance=ExtResource("10_eb6dy")]
+visible = false
+position = Vector2(1074, -74.00001)
+scale = Vector2(2.76, 8.519999)
+
+[node name="win_zone" parent="." unique_id=824333999 instance=ExtResource("14_jbj1t")]
+visible = false
+position = Vector2(-869.00006, 2.9999695)
+scale = Vector2(2.372068, 4.636084)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=331621359]
+position = Vector2(0, 18)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=163506090]
+position = Vector2(0, -613)
+scale = Vector2(2.76, 8.519999)
+shape = SubResource("WorldBoundaryShape2D_kq4oe")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=31795827]
+position = Vector2(-585, 117)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1337887333]
+position = Vector2(128, -697)
+scale = Vector2(2.76, 8.519999)
+shape = SubResource("ConvexPolygonShape2D_a8y0u")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=760795896]
+position = Vector2(-585, 125)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D3" unique_id=1343849210]
+position = Vector2(128, -697)
+scale = Vector2(2.76, 8.519999)
+shape = SubResource("ConvexPolygonShape2D_5gtvn")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=1841317263]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D4" unique_id=756369535]
+position = Vector2(0, -613)
+scale = Vector2(2.76, 8.519999)
+shape = SubResource("WorldBoundaryShape2D_a8y0u")

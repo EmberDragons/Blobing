@@ -10,6 +10,8 @@ var saved_velocity : Vector2
 var follow:bool = false
 var object_follow
 
+var is_on_fire : bool = false
+
 func _ready() -> void:
 	linear_velocity += Vector2(1000,0)
 
@@ -38,8 +40,22 @@ func unblock() -> void:
 	angular_velocity += (rotation_modif*randf_range(-1,1)*(linear_velocity.x+linear_velocity.y))
 
 
+func _unhandled_input(event):
+	if event is InputEventKey:
+		if event.is_action_pressed("activate"):
+			explode()
+
+func explode():
+	is_on_fire = true
+	visible = false
+	spawn_explosion()
+
 func die():
 	queue_free()
+
+func spawn_explosion():
+	
+
 
 func accelerate():
 	linear_velocity = Vector2(min(max_velocity,abs(linear_velocity.x*mult))*(int(linear_velocity.x>0)-0.5)*2,

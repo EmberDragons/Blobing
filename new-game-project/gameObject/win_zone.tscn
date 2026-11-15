@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://crw4rmtamfyyy"]
+
+[ext_resource type="Script" uid="uid://bprinaf8hcbom" path="res://scripts/obj/win_zone.gd" id="1_as1ag"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_so4va"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kq4oe"]
+size = Vector2(127, 127)
+
+[node name="win_zone" type="Area2D" unique_id=1597284461]
+script = ExtResource("1_as1ag")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2067464123]
+shape = SubResource("RectangleShape2D_kq4oe")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1188688780]
+texture = ExtResource("2_so4va")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
