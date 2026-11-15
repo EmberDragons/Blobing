@@ -2,8 +2,11 @@
 
 [ext_resource type="Script" uid="uid://cioshwuaswkj8" path="res://scripts/incantations.gd" id="1_hat8c"]
 [ext_resource type="Texture2D" uid="uid://cbb8t8ysgfycj" path="res://art/slimes/normal.png" id="2_3sbvi"]
+[ext_resource type="Texture2D" uid="uid://cool61jyfr20q" path="res://art/ui/uis.png" id="2_nm1m0"]
 [ext_resource type="Script" uid="uid://bxniubmai0bsg" path="res://scripts/random_letters_gen.gd" id="3_nm1m0"]
 [ext_resource type="FontFile" uid="uid://b0lct4a1cm3hn" path="res://fonts/MyCustomFont.ttf" id="4_hat8c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c7tqi"]
 
 [sub_resource type="Animation" id="Animation_tbgi4"]
 length = 0.001
@@ -73,6 +76,8 @@ font_size = 34
 font = ExtResource("4_hat8c")
 font_size = 34
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cbfhl"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_tipki"]
 font = ExtResource("4_hat8c")
 font_size = 34
@@ -132,25 +137,31 @@ l_anim = [NodePath("HBoxContainer/1/AnimationPlayer"), NodePath("HBoxContainer/2
 t_press_col = Color(0.6666667, 0.26666668, 0.39607844, 1)
 t_idle_col = Color(1, 0.6509804, 0.61960787, 1)
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1709082923]
+position = Vector2(0, -76.99999)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_nm1m0")
+
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=39754825]
-custom_minimum_size = Vector2(1600, 100)
+custom_minimum_size = Vector2(1200, 100)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -803.0
-offset_top = 340.0
-offset_right = 847.0
-offset_bottom = 440.00052
+offset_left = -695.0
+offset_top = 345.0
+offset_right = 955.0
+offset_bottom = 445.001
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 150
+theme_override_constants/separation = 65
 
 [node name="1" type="PanelContainer" parent="HBoxContainer" unique_id=1287316914]
 custom_minimum_size = Vector2(300, 20)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_c7tqi")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/1" unique_id=1079198766]
 libraries/ = SubResource("AnimationLibrary_o6xl0")
@@ -201,6 +212,7 @@ label_settings = SubResource("LabelSettings_o6xl0")
 [node name="2" type="PanelContainer" parent="HBoxContainer" unique_id=386882760]
 custom_minimum_size = Vector2(300, 20)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_cbfhl")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/2" unique_id=1551109340]
 libraries/ = SubResource("AnimationLibrary_o6xl0")
@@ -251,6 +263,7 @@ label_settings = SubResource("LabelSettings_ya4ey")
 [node name="3" type="PanelContainer" parent="HBoxContainer" unique_id=1770750875]
 custom_minimum_size = Vector2(300, 20)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_cbfhl")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/3" unique_id=85785850]
 libraries/ = SubResource("AnimationLibrary_o6xl0")
@@ -301,6 +314,7 @@ label_settings = SubResource("LabelSettings_jkv2x")
 [node name="4" type="PanelContainer" parent="HBoxContainer" unique_id=16584485]
 custom_minimum_size = Vector2(300, 20)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_cbfhl")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/4" unique_id=407229412]
 libraries/ = SubResource("AnimationLibrary_o6xl0")

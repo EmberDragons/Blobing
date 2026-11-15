@@ -17,11 +17,13 @@ func _ready() -> void:
 
 func reset():
 	for j in range(len(l_pos)):
-		var l = countainer.get_child(j).get_child(-1)
-		for i in range(len(l.get_children())):
-			l.get_child(i).get_label_settings().font_color = t_idle_col
-	l_pos = [0,0,0,0]
+		reset_s(j)
+		l_pos = [0,0,0,0]
 
+func reset_s(k):
+	var l = countainer.get_child(k).get_child(-1)
+	for i in range(len(l.get_children())):
+		l.get_child(i).get_label_settings().font_color = t_idle_col
 
 func _process(delta: float) -> void:
 	for j in range(len(l_pos)):
@@ -47,9 +49,11 @@ func _unhandled_input(event):
 	if event is InputEventKey:
 		if event.pressed:
 			for i in range(len(countainer.get_children())):
-				print(countainer.get_child(i))
 				var l = countainer.get_child(i).get_child(-1)
 				if l.get_child(l_pos[i]).text == OS.get_keycode_string(event.keycode):
 					l.get_child(l_pos[i]).get_label_settings().font_color = t_press_col
 					l_pos[i]+=1
 					time_left=1
+				else:
+					l_pos[i]=0
+					reset_s(i)

@@ -1,31 +1,89 @@
 [gd_scene format=3 uid="uid://dkh2s285bh32u"]
 
 [ext_resource type="Script" uid="uid://wmyah28egj7o" path="res://scripts/player/player.gd" id="1_q4gac"]
+[ext_resource type="Texture2D" uid="uid://dhb5objbtytvv" path="res://art/anim/player/player.png" id="2_q4gac"]
+[ext_resource type="Script" uid="uid://cld4gsjxpo13s" path="res://scripts/player/catch.gd" id="3_qemly"]
+[ext_resource type="Texture2D" uid="uid://dgj73ve8etn1r" path="res://art/anim/player/IMG_6967.png" id="3_tfqt5"]
+[ext_resource type="Texture2D" uid="uid://b82gkcyfv7c4k" path="res://art/anim/player/IMG_6968.png" id="4_5ljy6"]
+[ext_resource type="Texture2D" uid="uid://dvtfud3s7fc5i" path="res://art/anim/player/IMG_6969.png" id="5_v4sp8"]
+[ext_resource type="Texture2D" uid="uid://c3anbc20pv7gp" path="res://art/anim/player/IMG_6970.png" id="6_phae6"]
+[ext_resource type="Texture2D" uid="uid://yp0pr5upurwq" path="res://art/anim/player/IMG_6971.png" id="7_3tik1"]
+[ext_resource type="Texture2D" uid="uid://cfd2krjljtsw0" path="res://art/anim/player/IMG_6972.png" id="8_kctsn"]
+[ext_resource type="Texture2D" uid="uid://dkegieviq3o6y" path="res://art/anim/player/IMG_6973.png" id="9_xabr4"]
+[ext_resource type="Texture2D" uid="uid://darruyroh86qk" path="res://art/anim/player/IMG_6974.png" id="10_3eqlm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kq4oe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_q4gac")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tfqt5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tfqt5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5ljy6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_v4sp8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_v4sp8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_phae6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_phae6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3tik1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_kctsn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_xabr4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_3eqlm")
+}],
+"loop": 0,
+"name": &"shoot",
+"speed": 28.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lfe4j"]
-size = Vector2(14, 184)
+size = Vector2(26, 174)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hdlqr"]
-size = Vector2(24, 196)
+size = Vector2(25, 180)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kq4oe"]
+size = Vector2(29, 191)
 
 [node name="playert" type="CharacterBody2D" unique_id=1650298364]
 script = ExtResource("1_q4gac")
 
-[node name="art" type="ColorRect" parent="." unique_id=31623327]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -10.0
-offset_top = -96.0
-offset_right = 10.0
-offset_bottom = 96.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1861467395]
+visible = false
+texture_filter = 1
+position = Vector2(16, -7)
+scale = Vector2(1.9311225, 2.0519128)
+texture = ExtResource("2_q4gac")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=799943286]
+texture_filter = 1
+position = Vector2(16, -5)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_kq4oe")
+animation = &"shoot"
 
 [node name="collision" type="CollisionShape2D" parent="." unique_id=195339765]
+position = Vector2(6, 2)
 shape = SubResource("RectangleShape2D_lfe4j")
 
 [node name="collision slime" type="StaticBody2D" parent="." unique_id=1703185376]
@@ -33,4 +91,17 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="collision slime" unique_id=866308646]
+position = Vector2(1.5, 2)
 shape = SubResource("RectangleShape2D_hdlqr")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=762113149]
+script = ExtResource("3_qemly")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=166886997]
+position = Vector2(-2.5, 0.5)
+shape = SubResource("RectangleShape2D_kq4oe")
+
+[node name="slime_pos" type="Node2D" parent="Area2D" unique_id=1865729977]
+position = Vector2(-55, 0)
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_ball_touch"]

@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 
-var speed = 600.0
-var friction = 1200.0
+var speed = 400.0
+var friction = 900.0
 var pos_x : float
 
 
