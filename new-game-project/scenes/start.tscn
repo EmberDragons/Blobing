@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://chykqfu21lyb3"]
+
+[ext_resource type="Texture2D" uid="uid://bn8broef81s12" path="res://art/bg/start-screen.png" id="1_jaeev"]
+[ext_resource type="Texture2D" uid="uid://dv8doutxeycr1" path="res://art/start-button.png" id="2_u80x2"]
+[ext_resource type="Script" uid="uid://bd8chsonap17s" path="res://scripts/obj/start-button.gd" id="3_bodal"]
+
+[node name="Start" type="Node2D" unique_id=863303600]
+
+[node name="bg" type="Sprite2D" parent="." unique_id=1566264554]
+position = Vector2(960, 600)
+texture = ExtResource("1_jaeev")
+
+[node name="buttonSprite" type="Sprite2D" parent="." unique_id=455455189]
+position = Vector2(940, 522)
+texture = ExtResource("2_u80x2")
+
+[node name="Polygon2D" type="Polygon2D" parent="buttonSprite" unique_id=1433652136]
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(14, 179, 187, 198, 221, 219, 239, 251, 216, 297, 56, 322, -165, 313, -229, 269, -218, 223, -117, 184)
+script = ExtResource("3_bodal")

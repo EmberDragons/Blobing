@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dr1mq8ufymbhc" path="res://gameObject/blob type/big.tscn" id="2_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://bb7ll5i1qa6w0" path="res://art/bg/IMG_6976.png" id="3_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://bp4t7li86usdm" path="res://gameObject/blob type/gravity.tscn" id="3_jyhfs"]
+[ext_resource type="AudioStream" uid="uid://cx5cjp1pr2oqj" path="res://art/sound/blob.mp3" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://bkbwhawm0cdv2" path="res://gameObject/blob type/fire.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://d4m0y0t8te6l4" path="res://gameObject/blob type/fluffy.tscn" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://dolv2l0bo0731" path="res://gameObject/blob type/triple.tscn" id="7_choun"]
@@ -29,9 +30,12 @@ normal = Vector2(0, 1)
 
 [node name="scene" type="Node2D" unique_id=1097035717]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1960686319]
+[node name="music" type="AudioStreamPlayer" parent="." unique_id=1960686319]
 volume_db = -4.0
 autoplay = true
+
+[node name="blob" type="AudioStreamPlayer" parent="." unique_id=1707155068]
+stream = ExtResource("3_sugp2")
 
 [node name="art" type="Node2D" parent="." unique_id=2034347029]
 position = Vector2(0, 18)
@@ -66,6 +70,7 @@ scale = Vector2(1.175, 1.175)
 magician = NodePath("../magician")
 
 [node name="kill_zone" parent="." unique_id=1597284461 instance=ExtResource("10_eb6dy")]
+visible = false
 position = Vector2(1093, -78)
 scale = Vector2(2.76, 8.519999)
 

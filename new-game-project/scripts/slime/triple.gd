@@ -83,5 +83,7 @@ func die():
 
 func _on_body_collided(body: Node) -> void:
 	#acceleration et rebonds
+	var sound = get_node(^"/root/scene/blob")
+	sound.play()
 	linear_velocity = Vector2(min(max_velocity,abs(linear_velocity.x*mult))*(int(linear_velocity.x>0)-0.5)*2,
 	min(max_velocity,abs(linear_velocity.y*mult))*(int(linear_velocity.y>0)-0.5)*2)

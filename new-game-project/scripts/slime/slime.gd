@@ -40,6 +40,8 @@ func die():
 
 func _on_body_collided(body: Node) -> void:
 	#acceleration et rebonds
+	var sound = get_node(^"/root/scene/blob")
+	sound.play()
 	accelerate()
 	angular_velocity += (rotation_modif*randf_range(-1,1)*(linear_velocity.x+linear_velocity.y))
 
