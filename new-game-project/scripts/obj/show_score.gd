@@ -17,3 +17,14 @@ func _process(delta: float) -> void:
 			elif Score.level == 3:
 				get_tree().change_scene_to_file("res://scenes/credits.tscn")
 			Score.level += 1
+			
+func _unhandled_input(event):
+	if event is InputEventKey:
+		if event.is_action_pressed("activate"):
+			if Score.level == 1:
+				get_tree().change_scene_to_file("res://scenes/level_2.tscn")
+			elif Score.level == 2:
+				get_tree().change_scene_to_file("res://scenes/level_3.tscn")
+			elif Score.level == 3:
+				get_tree().change_scene_to_file("res://scenes/credits.tscn")
+			Score.level += 1
